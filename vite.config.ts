@@ -17,7 +17,7 @@ export default defineConfig(({ command, mode }) => {
       preprocessorOptions: {
         less: {
           charset: false,
-          additionalData: `@import '@asset/css/index.less';`
+          additionalData: `@import '@/assets/css/index.less';`
         }
       }
     },
