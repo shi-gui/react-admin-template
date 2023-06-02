@@ -1,3 +1,3 @@
 export const appConfig = {
-  tokenKey: "token",
+  tokenKey: 'token'
 };

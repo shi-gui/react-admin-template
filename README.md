@@ -1,14 +1,16 @@
 ## react-admin-template 项目简介
 
 ## 技术体系
+
 - 核心：TypeScript(5x) + React18(18x)
 - UI：Ant Design(5x)
 - 构建系统：Vite(4x)
-- HTTP请求：Axios
+- HTTP 请求：Axios
 - 依赖管理：pnpm
 - CSS：tailwind(3x)
 
 ### 目录规划
+
 ```js
 |- dist // 构建成果
 |- public
@@ -31,7 +33,8 @@
 ```
 
 ## 使用说明
-``` bash
+
+```bash
 # 安装依赖
 pnpm install
 
@@ -46,16 +49,19 @@ pnpm run build
 ```
 
 ### 项目规范
+
 - 代码规范：eslint + pritter
 - 提交规范：githooks
-- api接口约定
-- git分支策略
+- api 接口约定
+- git 分支策略
 
 ### 项目实现的功能概览
+
 - 主题切换
 - 国际化
 
-### 功能及UI参考网站
+### 功能及 UI 参考网站
+
 - https://nlrx-wjc.github.io/react-antd-admin-template/#/dashboard
 - https://panjiachen.github.io/vue-element-admin/#/login?redirect=%2Fdashboard
 
