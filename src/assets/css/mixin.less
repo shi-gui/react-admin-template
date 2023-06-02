@@ -1,0 +1,18 @@
+/*
+ * @Author: liuhua
+ * @Date: 2023-06-02 16:47:14
+ * @LastEditors: liuhua
+ * @LastEditTime: 2023-06-02 17:06:06
+ * @Description: 定义less方法
+ * 
+ */
+
+// 溢出省略...
+.text_overflow(@line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
