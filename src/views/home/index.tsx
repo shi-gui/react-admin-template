@@ -4,9 +4,11 @@ import RootStore from '@/store';
 function Home() {
   return (
     <>
-      <p>{RootStore.count}</p>
+      <p className=" text-red-500">{RootStore.count}</p>
       <p>{RootStore.float}</p>
-      <p onClick={RootStore.add}>增加</p>
+      <p onClick={RootStore.add} className="cursor-pointer">
+        增加
+      </p>
       <p onClick={RootStore.reduce}>减少</p>
     </>
   );

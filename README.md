@@ -4,10 +4,10 @@
 
 - 核心：TypeScript(5x) + React18(18x) + ReactRouter(6x) + Mobx(6x)
 - UI：Ant Design(5x)
-- 构建系统：Vite(4x)
+- CSS：tailwind(3x)
 - HTTP 请求：Axios
 - 依赖管理：pnpm
-- CSS：tailwind(3x)
+- 构建系统：Vite(4x)
 
 ### 目录规划
 
