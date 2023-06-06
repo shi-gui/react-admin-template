@@ -2,7 +2,7 @@
 
 ## 技术体系
 
-- 核心：TypeScript(5x) + React18(18x)
+- 核心：TypeScript(5x) + React18(18x) + ReactRouter(6x) + Mobx(6x)
 - UI：Ant Design(5x)
 - 构建系统：Vite(4x)
 - HTTP 请求：Axios
@@ -29,6 +29,7 @@
   |- views   // 页面
   |- App.tsx  // 根组件
   |- main.tsx
+|-type // ts类型
 ```
 
 ## 使用说明
@@ -50,8 +51,8 @@ pnpm run build
 ### 项目规范
 
 - 代码规范：eslint + pritter
-- 提交规范：githooks
-- api 接口约定
+- 提交规范：githooks（husky）
+- api 接口约定（按照 views 页面分组进行接口抽离）
 - git 分支策略
 
 ### 项目实现的功能概览
