@@ -1,15 +1,18 @@
 import { observer } from 'mobx-react';
 import RootStore from '@/store';
+import { Button } from 'antd';
 
 function Home() {
   return (
     <>
       <p className=" text-red-500">{RootStore.count}</p>
       <p>{RootStore.float}</p>
-      <p onClick={RootStore.add} className="cursor-pointer">
+      <Button type="primary" onClick={RootStore.add} className="cursor-pointer">
         增加
-      </p>
-      <p onClick={RootStore.reduce}>减少</p>
+      </Button>
+      <Button type="dashed" onClick={RootStore.reduce}>
+        减少
+      </Button>
     </>
   );
 }
