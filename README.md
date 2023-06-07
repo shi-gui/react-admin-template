@@ -22,7 +22,8 @@
   |- enums // 枚举值
   |- hooks // 全局hooks，用于抽离公用逻辑
   |- layout // 布局组件
-  |- plugins // 第三方插件
+  |- libs // 第三方插件
+  |- request // axios封装
   |- router  // 路由
   |- store   // 状态
   |- utils   // 工具函数
