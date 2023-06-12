@@ -2,7 +2,6 @@ import Layout from '@/layout';
 import Home from '@/views/home';
 import NotFound from '@/views/404';
 import React from 'react';
-import { RouteObject } from 'react-router-dom';
 
 const Login = React.lazy(() => import('@/views/login'));
 
@@ -11,6 +10,14 @@ export interface AppRouteObjectMeta {
   icon?: JSX.Element;
   hideInMenu?: boolean;
   permissions?: string[];
+}
+
+export interface RouteObject {
+  caseSensitive?: boolean; // 大小写敏感
+  children?: RouteObject[]; // 嵌套路由
+  element?: React.ReactNode; // 组件 or 页面
+  index?: boolean; // 是否作为 outlet 的默认索引/渲染
+  path?: string; // 匹配路径
 }
 
 export interface AppRouteObjet extends RouteObject {
