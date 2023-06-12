@@ -13,13 +13,17 @@ export default defineConfig(({ command, mode }) => {
       }
     },
     css: {
-      // 加载入口文件
-      preprocessorOptions: {
-        less: {
-          charset: false,
-          additionalData: `@import '@/assets/css/index.less';`
-        }
-      }
+      /**
+       * 加载入口文件
+       * ❌ 必须在main.tsx中引入一个less文件，这里的引入才会生效
+       * ✅ 所以直接在main.tsx中加载入口文件吧。
+       */
+      // preprocessorOptions: {
+      //   less: {
+      //     charset: false,
+      //     additionalData: `@import '@/assets/css/index.less';`
+      //   }
+      // }
     },
     build: {
       outDir: 'dist', // 输出目录
