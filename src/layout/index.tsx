@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, Dropdown } from 'antd';
-import type { MenuProps } from 'antd';
+import type { MenuProps, MenuTheme } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import {
   headerMenuItems,
@@ -22,13 +22,11 @@ function hasObjKey(obj: any[], key: string): key is keyof typeof allRoutesMenu {
     return false;
   }
 }
-type GetParams<T> = T extends (a: infer U, ...args: infer Rest) => unknown
-  ? U
-  : never;
+type GetParamsFirst<T> = T extends (a: infer U) => unknown ? U : never;
 const Home: React.FC = () => {
   const navigate = useNavigate();
   // theme
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState<MenuTheme>('dark');
   // 头部菜单key
   const [current, setCurrent] = useState<keyof typeof allRoutesMenu>('base');
   // 侧边菜单
@@ -48,7 +46,7 @@ const Home: React.FC = () => {
     setAsideCurrent(e.key);
     navigate(`${current}/${e.key}`);
   };
-  // 进入页面指定菜单的选择 S
+  /** 进入页面指定菜单的选择 S */
   const location = useLocation();
   // 进入页面指定菜单的选择
   useEffect(() => {
@@ -59,7 +57,7 @@ const Home: React.FC = () => {
       const headerMenuTab = pathNameArr[0];
       if (hasObjKey(headerMenuItems, headerMenuTab)) {
         onClick(
-          allRoutesMenu[headerMenuTab] as unknown as GetParams<
+          allRoutesMenu[headerMenuTab] as unknown as GetParamsFirst<
             MenuProps['onClick']
           >
         );
@@ -67,7 +65,7 @@ const Home: React.FC = () => {
       }
     }
   }, []);
-  // 进入页面指定菜单的选择 E
+  /** 进入页面指定菜单的选择 E */
 
   // 个人信息菜单
   const handleMenuClick: MenuProps['onClick'] = e => {
@@ -80,10 +78,10 @@ const Home: React.FC = () => {
 
   return (
     <div className={`${style.container} ${style[theme]}`}>
-      <div className={style.logo}>YANG</div>
+      <div className={style.logo}>YZZT</div>
       <header>
         <Menu
-          theme="dark"
+          theme={theme}
           onClick={onClick}
           selectedKeys={[current]}
           mode="horizontal"
@@ -95,13 +93,13 @@ const Home: React.FC = () => {
             placement="bottom"
             icon={<UserOutlined />}
           >
-            杨杰
+            yang
           </Dropdown.Button>
         </div>
       </header>
       <aside>
         <Menu
-          theme="dark"
+          theme={theme}
           onClick={onClickAside}
           selectedKeys={[asideCurrent]}
           mode="inline"
