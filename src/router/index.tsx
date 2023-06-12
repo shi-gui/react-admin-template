@@ -1,10 +1,8 @@
 import Layout from '@/layout';
-import Home from '@/views/home';
-import NotFound from '@/views/404';
-import React from 'react';
-
-const Login = React.lazy(() => import('@/views/login'));
-
+import React, { lazy } from 'react';
+const Login = lazy(() => import('@/views/login'));
+const Home = lazy(() => import('@/views/home'));
+const NotFound = lazy(() => import('@/views/404'));
 export interface AppRouteObjectMeta {
   title?: string;
   icon?: JSX.Element;
@@ -30,8 +28,12 @@ const router: RouteObject[] = [
     element: <Layout />,
     children: [
       {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
         path: 'home',
-        element: <Home />
+        element: <Home></Home>
       }
     ]
   },
