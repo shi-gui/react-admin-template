@@ -12,6 +12,7 @@
     "hooks": "husky install"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "antd": "^5.6.0",
     "mobx": "^6.9.0",
     "mobx-react": "^7.6.0",
