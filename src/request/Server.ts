@@ -1,3 +1,11 @@
+/*
+ * @Author: liuhua
+ * @Date: 2023-06-13 09:26:29
+ * @LastEditors: liuhua
+ * @LastEditTime: 2023-06-13 13:56:09
+ * @Description: 来源：https://www.npmjs.com/package/@bwrong/request
+ *
+ */
 import axios from 'axios';
 
 import type {
