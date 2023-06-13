@@ -1,3 +1,3 @@
-export const appConfig = {
+export default {
   tokenKey: 'token'
 };
