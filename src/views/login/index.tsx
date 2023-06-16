@@ -1,14 +1,36 @@
+import { useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { TwitterOutlined } from '@ant-design/icons';
 import ParticlesBg from 'particles-bg';
+import type { LoginParams } from '@/api/login/login';
+import { setToken, setUserInfo } from '@/utils/store';
 import './index.less';
 
 function Login() {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+
+  const rules = {
+    username: [{ required: true, message: 'Please input your username!' }],
+    password: [{ required: true, message: 'Please input your password!' }]
   };
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+
+  const handleLogin = (values: LoginParams) => {
+    setLoading(true);
+    console.log('表单信息:' + values);
+    setTimeout(() => {
+      setLoading(false);
+      const res = {
+        userInfo: {
+          name: 'liuhua',
+          age: 18,
+          sex: 1
+        },
+        token: 'xhshgsbzlgin'
+      };
+      setToken(res.token);
+      setUserInfo(JSON.stringify(res.userInfo));
+    }, 1500);
   };
 
   return (
@@ -22,29 +44,23 @@ function Login() {
         <Form
           name="basic"
           initialValues={{ remember: false }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
+          form={form}
+          onFinish={handleLogin}
           autoComplete="off"
         >
-          <Form.Item
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
+          <Form.Item name="username" rules={rules.username}>
             <Input placeholder="Username" />
           </Form.Item>
-
-          <Form.Item
-            rules={[{ required: true, message: 'Please input your password!' }]}
-          >
-            <Input placeholder="Password" />
+          <Form.Item name="password" rules={rules.password}>
+            <Input.Password placeholder="Password" />
           </Form.Item>
-
           <Form.Item name="remember" valuePropName="checked">
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-
           <Button
             type="primary"
             className="w-full h-10 bg-[#4096ff]"
+            loading={loading}
             htmlType="submit"
           >
             Login

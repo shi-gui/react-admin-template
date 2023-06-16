@@ -1,16 +1,30 @@
-import Cookie from 'js-cookie';
-import appConfig from '@/config';
+import config from '@/config';
+import Cookies from 'js-cookie';
 
-const { tokenKey } = appConfig;
+const { tokenKey } = config;
 
-//#region token
+/**
+ * token
+ */
 export function getToken() {
-  return Cookie.get(tokenKey);
+  return Cookies.get(tokenKey);
 }
 export function setToken(token: string) {
-  return Cookie.set(tokenKey, token);
+  Cookies.set(tokenKey, token);
 }
 export function removeToken() {
-  return Cookie.remove(tokenKey);
+  Cookies.remove(tokenKey);
 }
-//#endregion
+
+/**
+ * userInfo
+ */
+export function getUserInfo() {
+  return localStorage.getItem('userInfo');
+}
+export function setUserInfo(userInfo: string) {
+  localStorage.setItem('userInfo', userInfo);
+}
+export function removeUserInfo() {
+  localStorage.removeItem('userInfo');
+}
