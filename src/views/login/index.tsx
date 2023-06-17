@@ -4,11 +4,13 @@ import { TwitterOutlined } from '@ant-design/icons';
 import ParticlesBg from 'particles-bg';
 import type { LoginParams } from '@/api/login/login';
 import { setToken, setUserInfo } from '@/utils/store';
+import { useNavigate } from 'react-router-dom';
 import './index.less';
 
 function Login() {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const rules = {
     username: [{ required: true, message: 'Please input your username!' }],
@@ -24,12 +26,14 @@ function Login() {
         userInfo: {
           name: 'liuhua',
           age: 18,
-          sex: 1
+          sex: 1,
+          role: values.username === 'admin' ? 'admin' : 'test'
         },
         token: 'xhshgsbzlgin'
       };
       setToken(res.token);
       setUserInfo(JSON.stringify(res.userInfo));
+      navigate('/home');
     }, 1500);
   };
 

@@ -1,9 +1,11 @@
 import { Button } from 'antd';
 import ImgUrl from '@/assets/img/404.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function NotFound() {
+  const navigate = useNavigate();
   const handleClick = () => {
-    console.log('需要跳转到首页哦');
+    navigate('/home');
   };
   return (
     <div className="un-box h-full flex items-center justify-center flex-col bg-[#f5f5f5]">
