@@ -52,7 +52,7 @@ function Login() {
             <Input placeholder="Username" />
           </Form.Item>
           <Form.Item name="password" rules={rules.password}>
-            <Input.Password placeholder="Password" />
+            <Input placeholder="Password" />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked">
             <Checkbox>Remember me</Checkbox>
