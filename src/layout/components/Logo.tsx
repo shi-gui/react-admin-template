@@ -1,5 +1,5 @@
 import { TwitterOutlined } from '@ant-design/icons';
-import type { Iprops } from '../../../index';
+import type { Iprops } from '@/layout';
 
 const LayoutLogo = (props: Iprops) => {
   const { collapsed } = props;

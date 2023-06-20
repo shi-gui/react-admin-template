@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
-import LayoutLogo from './components/Logo';
-import LayoutMenu from './components/Menu';
+import LayoutLogo from './Logo';
+import LayoutMenu from './Menu';
 import type { Iprops } from '@/layout';
 
 const { Sider } = Layout;
