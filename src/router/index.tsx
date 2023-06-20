@@ -3,6 +3,9 @@ import React, { lazy } from 'react';
 const Login = lazy(() => import('@/views/login'));
 const Home = lazy(() => import('@/views/home'));
 const NotFound = lazy(() => import('@/views/404'));
+const AccountCenter = lazy(() => import('@/views/account/center'));
+const AccountSettings = lazy(() => import('@/views/account/settings'));
+
 export interface AppRouteObjectMeta {
   title?: string;
   icon?: JSX.Element;
@@ -29,11 +32,19 @@ const router: RouteObject[] = [
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home />
       },
       {
-        path: 'home',
-        element: <Home></Home>
+        path: '/home',
+        element: <Home />
+      },
+      {
+        path: '/account/center',
+        element: <AccountCenter />
+      },
+      {
+        path: '/account/settings',
+        element: <AccountSettings />
       }
     ]
   },
