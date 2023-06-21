@@ -1,10 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, type MenuProps } from 'antd';
 import { menuList, type MenuItem, type IconType } from '@/config/menu';
 import * as Icons from '@ant-design/icons';
 
 const LayoutMenu = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const path = location.pathname;
   /**
    *
    * @param param
@@ -46,6 +48,36 @@ const LayoutMenu = () => {
   };
   const items: MenuProps['items'] = convertTreeMenu(menuList);
 
+  /**
+   * @returns 通过path获取当前选中的菜单id
+   */
+  function getselectedKeys() {
+    const id = menuList.find(item => item.path === path)?.id;
+
+    return [id || ''];
+  }
+  /**
+   * @returns 获取当前选中菜单的父id集合
+   */
+  function getDefaultOpenKeys() {
+    const keys: string[] = [];
+
+    const id = menuList.find(item => item.path === path)?.id || '';
+    if (!id) return;
+
+    const mapMenu = (menuList: MenuItem[], id: string) => {
+      menuList.forEach(item => {
+        if (item.id === id && item.parentId) {
+          keys.push(item.parentId);
+          mapMenu(menuList, item.parentId);
+        }
+      });
+    };
+    mapMenu(menuList, id);
+
+    return keys;
+  }
+
   const handleClick = ({ key }: { key: string }) => {
     const path = menuList.find(item => item.id === key)?.path;
     path && navigate(path);
@@ -55,8 +87,9 @@ const LayoutMenu = () => {
     <Menu
       theme="dark"
       mode="inline"
-      defaultSelectedKeys={['1']}
       items={items}
+      defaultOpenKeys={getDefaultOpenKeys()}
+      selectedKeys={getselectedKeys()}
       onClick={handleClick}
     />
   );
