@@ -2,16 +2,19 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: liuhua
- * @LastEditTime: 2023-06-20 18:11:50
+ * @LastEditTime: 2023-06-21 16:03:04
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
+import * as Icons from '@ant-design/icons';
 
+export type IconType = keyof typeof Icons;
 export interface MenuItem {
   id: string;
   title: string;
   path: string | null;
   roles: string[];
+  icon?: IconType;
   parentId: string | null;
 }
 
@@ -22,6 +25,7 @@ export const menuList: MenuItem[] = [
     title: '首页',
     path: '/home',
     roles: ['admin', 'test'],
+    icon: 'HomeOutlined',
     parentId: null
   },
   // 权限测试
@@ -29,6 +33,7 @@ export const menuList: MenuItem[] = [
     id: '2',
     title: '权限测试',
     path: null,
+    icon: 'LockOutlined',
     roles: ['admin', 'test'],
     parentId: null
   },
@@ -51,6 +56,7 @@ export const menuList: MenuItem[] = [
     id: '3',
     title: '嵌套路由',
     path: null,
+    icon: 'MenuOutlined',
     roles: ['admin', 'test'],
     parentId: null
   },
