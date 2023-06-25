@@ -28,3 +28,16 @@ export function setUserInfo(userInfo: string) {
 export function removeUserInfo() {
   localStorage.removeItem('userInfo');
 }
+
+/**
+ * lang
+ */
+export function getLang() {
+  return localStorage.getItem('lang');
+}
+export function setLang(lang: string) {
+  localStorage.setItem('lang', lang);
+}
+export function removeLang() {
+  localStorage.removeItem('lang');
+}

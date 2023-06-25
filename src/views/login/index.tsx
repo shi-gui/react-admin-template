@@ -3,7 +3,7 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { TwitterOutlined } from '@ant-design/icons';
 import ParticlesBg from 'particles-bg';
 import type { LoginParams } from '@/api/login/login';
-import { setToken, setUserInfo } from '@/utils/store';
+import { setToken, setUserInfo, getLang, setLang } from '@/utils/store';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
 
@@ -32,6 +32,7 @@ function Login() {
         token: 'xhshgsbzlgin'
       };
       setToken(res.token);
+      !getLang() && setLang('zh_CN');
       setUserInfo(JSON.stringify(res.userInfo));
       navigate('/home');
     }, 1500);
