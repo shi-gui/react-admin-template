@@ -20,6 +20,7 @@ import {
 import type { Iprops } from '@/layout';
 import AvatarImg from '@/assets/img/avatar.png';
 import { useNavigate } from 'react-router-dom';
+import { setLang } from '@/utils/store';
 
 const { Header } = Layout;
 
@@ -103,30 +104,33 @@ const LayoutHeader = (props: Iprops) => {
     );
   };
   const Language = () => {
-    const items: MenuProps['items'] = [
-      {
-        key: '1',
-        label: '简体中文',
-        onClick: () => {}
-      },
-      {
-        key: '2',
-        label: '繁体中文',
-        onClick: () => {}
-      },
-      {
-        key: '3',
-        label: 'English',
-        onClick: () => {}
-      },
-      {
-        key: '4',
-        label: '日语',
-        onClick: () => {}
+    const menuProps = {
+      items: [
+        {
+          key: 'zhCN',
+          label: '简体中文'
+        },
+        {
+          key: 'zhHK',
+          label: '繁体中文'
+        },
+        {
+          key: 'enUS',
+          label: 'English'
+        },
+        {
+          key: 'jaJP',
+          label: '日语'
+        }
+      ],
+      onClick: (item: any) => {
+        setLang(item?.key);
+        window.location.reload();
       }
-    ];
+    };
+
     return (
-      <Dropdown menu={{ items }} placement="bottomLeft" trigger={['click']}>
+      <Dropdown menu={menuProps} placement="bottomLeft" trigger={['click']}>
         <div className="h-16">
           <FontSizeOutlined className="text-xl cursor-pointer" />
         </div>

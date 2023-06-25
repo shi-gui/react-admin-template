@@ -6,11 +6,13 @@ import type { LoginParams } from '@/api/login/login';
 import { setToken, setUserInfo, getLang, setLang } from '@/utils/store';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
+import appConfig from '@/config';
 
 function Login() {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { defaultLang } = appConfig;
 
   const rules = {
     username: [{ required: true, message: 'Please input your username!' }],
@@ -32,7 +34,7 @@ function Login() {
         token: 'xhshgsbzlgin'
       };
       setToken(res.token);
-      !getLang() && setLang('zh_CN');
+      !getLang() && setLang(defaultLang);
       setUserInfo(JSON.stringify(res.userInfo));
       navigate('/home');
     }, 1500);
