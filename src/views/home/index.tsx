@@ -1,18 +1,26 @@
 import { observer } from 'mobx-react';
 import RootStore from '@/store';
-import { Button } from 'antd';
+import { Button, DatePicker, type DatePickerProps } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
+  const { t } = useTranslation();
+
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
   return (
     <>
       <p className=" text-red-500">{RootStore.count}</p>
       <p>{RootStore.float}</p>
       <Button type="primary" onClick={RootStore.add} className="cursor-pointer">
-        增加
+        {t('首页')}
       </Button>
       <Button type="dashed" onClick={RootStore.reduce}>
         减少
       </Button>
+      <DatePicker onChange={onChange} />
     </>
   );
 }

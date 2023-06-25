@@ -21,6 +21,7 @@
   |- config // 全局配置
   |- enums // 枚举值
   |- hooks // 全局hooks，用于抽离公用逻辑
+  |- lang // 国际化资源
   |- layout // 布局组件
   |- libs // 第三方插件
   |- request // axios封装
