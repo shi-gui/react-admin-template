@@ -20,48 +20,62 @@ import {
 import type { Iprops } from '@/layout';
 import AvatarImg from '@/assets/img/avatar.png';
 import { useNavigate } from 'react-router-dom';
-import { setLang } from '@/utils/store';
+import { setLang, getLang } from '@/utils/store';
+import { useTranslation } from 'react-i18next';
 
 const { Header } = Layout;
 
 const LayoutHeader = (props: Iprops) => {
   const { collapsed, setCollapsed } = props;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const MessageInfo = () => {
-    const items: TabsProps['items'] = [
-      {
-        key: '1',
-        label: `通知（4）`,
-        children: (
-          <div className="flex flex-col gap-2">
-            <UserInfo />
-            <UserInfo />
-          </div>
-        )
-      },
-      {
-        key: '2',
-        label: `消息（2）`,
-        children: (
-          <div>
-            should be used in parent route elements to render their child route
-            elements. This allows nested UI to show up when child routes are
-            rendered. If the parent route matched exactly, it will render a
-            child index route or nothing if there is no index route.
-          </div>
-        )
-      },
-      {
-        key: '3',
-        label: `待办（3）`,
-        children: <div>xxx</div>
-      }
-    ];
+    const Content = () => {
+      const items: TabsProps['items'] = [
+        {
+          key: '1',
+          label: t('通知') + '(4)',
+          children: (
+            <div className="flex flex-col gap-2">
+              <UserInfo />
+              <UserInfo />
+            </div>
+          )
+        },
+        {
+          key: '2',
+          label: t('消息') + '（2）',
+          children: (
+            <div>
+              should be used in parent route elements to render their child
+              route elements. This allows nested UI to show up when child routes
+              are rendered. If the parent route matched exactly, it will render
+              a child index route or nothing if there is no index route.
+            </div>
+          )
+        },
+        {
+          key: '3',
+          label: t('待办') + '（3）',
+          children: <div>xxx</div>
+        }
+      ];
+      return (
+        <div className="w-[340px]">
+          <Tabs defaultActiveKey="1" items={items} className="mt-[-12px]" />
+        </div>
+      );
+    };
+
     return (
-      <div className="w-[340px]">
-        <Tabs defaultActiveKey="1" items={items} className="mt-[-12px]" />
-      </div>
+      <Popover content={Content} arrow={false} trigger="click">
+        <div className="w-10 cursor-pointer">
+          <Badge count={99} offset={[10, 0]} size="small">
+            <BellOutlined className="text-xl" />
+          </Badge>
+        </div>
+      </Popover>
     );
   };
   const UserInfo = () => {
@@ -69,7 +83,7 @@ const LayoutHeader = (props: Iprops) => {
       {
         key: '1',
         icon: <UserOutlined />,
-        label: '个人中心',
+        label: t('个人中心'),
         onClick: () => {
           navigate('/account/center');
         }
@@ -77,7 +91,7 @@ const LayoutHeader = (props: Iprops) => {
       {
         key: '2',
         icon: <SettingOutlined />,
-        label: '个人设置',
+        label: t('个人设置'),
         onClick: () => {
           navigate('/account/settings');
         }
@@ -88,7 +102,7 @@ const LayoutHeader = (props: Iprops) => {
       {
         key: '3',
         icon: <PoweroffOutlined />,
-        label: '退出登录',
+        label: t('退出登录'),
         onClick: () => {
           navigate('/login');
         }
@@ -103,9 +117,10 @@ const LayoutHeader = (props: Iprops) => {
       </Dropdown>
     );
   };
-  const Language = () => {
-    const menuProps = {
-      items: [
+
+  const LangInfo = () => {
+    const Content = () => {
+      const items = [
         {
           key: 'zhCN',
           label: '简体中文'
@@ -122,19 +137,37 @@ const LayoutHeader = (props: Iprops) => {
           key: 'jaJP',
           label: '日语'
         }
-      ],
-      onClick: (item: any) => {
-        setLang(item?.key);
+      ];
+      const handleClick = (key: string) => {
+        if (getLang() === key) return;
+
+        setLang(key);
         window.location.reload();
-      }
+      };
+      return (
+        <ul className="!mx-[-12px]">
+          {items.map(item => (
+            <li
+              className={
+                (getLang() === item.key ? '!text-blue-400 !bg-blue-50' : '') +
+                ' cursor-pointer py-[5px] px-6 hover:bg-gray-50'
+              }
+              key={item.key}
+              onClick={() => handleClick(item.key)}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
+      );
     };
 
     return (
-      <Dropdown menu={menuProps} placement="bottomLeft" trigger={['click']}>
+      <Popover content={Content} arrow={false} trigger="click">
         <div className="h-16">
           <FontSizeOutlined className="text-xl cursor-pointer" />
         </div>
-      </Dropdown>
+      </Popover>
     );
   };
 
@@ -147,16 +180,9 @@ const LayoutHeader = (props: Iprops) => {
         onClick={() => setCollapsed?.(!collapsed)}
       />
       <div className="flex items-center gap-10 px-2">
-        <Popover content={MessageInfo} arrow={false} trigger="click">
-          <div className="w-10 cursor-pointer">
-            <Badge count={99} offset={[10, 0]} size="small">
-              <BellOutlined className="text-xl" />
-            </Badge>
-          </div>
-        </Popover>
-
+        <MessageInfo />
         <UserInfo />
-        <Language />
+        <LangInfo />
       </div>
     </Header>
   );

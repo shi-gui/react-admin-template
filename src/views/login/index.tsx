@@ -7,12 +7,14 @@ import { setToken, setUserInfo, getLang, setLang } from '@/utils/store';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
 import appConfig from '@/config';
+import { useTranslation } from 'react-i18next';
 
 function Login() {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { defaultLang } = appConfig;
+  const { t } = useTranslation();
 
   const rules = {
     username: [{ required: true, message: 'Please input your username!' }],
@@ -45,8 +47,8 @@ function Login() {
       <ParticlesBg type="circle" bg={true} />
       <div className="w-[400px] h-[500px] rounded-lg form-box p-5">
         <div className="flex justify-center items-center flex-col mb-10">
-          <TwitterOutlined style={{ fontSize: '30px', color: '#08c' }} />
-          <p className="pt-2">Sign in</p>
+          <TwitterOutlined style={{ fontSize: '35px', color: '#08c' }} />
+          <p className="pt-2 text-2xl">Liuhua</p>
         </div>
         <Form
           name="basic"
@@ -56,13 +58,13 @@ function Login() {
           autoComplete="off"
         >
           <Form.Item name="username" rules={rules.username}>
-            <Input placeholder="Username" />
+            <Input placeholder={t('用户名')} />
           </Form.Item>
           <Form.Item name="password" rules={rules.password}>
-            <Input placeholder="Password" />
+            <Input placeholder={t('密码')} />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>{t('记住账号')}</Checkbox>
           </Form.Item>
           <Button
             type="primary"
@@ -70,14 +72,12 @@ function Login() {
             loading={loading}
             htmlType="submit"
           >
-            Login
+            {t('登录')}
           </Button>
         </Form>
-        <p className="flex text-xs justify-between text-[#08c] mt-4">
-          <span className=" cursor-pointer">Forgot password?</span>
-          <span className=" cursor-pointer">
-            Don‘t have an account? Sign Up
-          </span>
+        <p className="flex text-xs justify-between text-[#08c] mt-4 gap-6">
+          <span className=" cursor-pointer">{t('忘记密码')}</span>
+          <span className=" cursor-pointer">{t('没有账号?注册')}</span>
         </p>
       </div>
     </div>

@@ -15,7 +15,7 @@ import zhCN from 'antd/locale/zh_CN';
 import zhHK from 'antd/locale/zh_HK';
 import enUS from 'antd/locale/en_US';
 import jaJP from 'antd/locale/ja_JP';
-const antdLocale: Record<string, any> = {
+const antdLocale: Record<string, typeof zhCN> = {
   zhCN,
   zhHK,
   enUS,

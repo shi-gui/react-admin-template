@@ -2,11 +2,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, type MenuProps } from 'antd';
 import { menuList, type MenuItem, type IconType } from '@/config/menu';
 import * as Icons from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const LayoutMenu = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
+  const { t } = useTranslation();
   /**
    *
    * @param param
@@ -36,7 +38,7 @@ const LayoutMenu = () => {
         const child = convertTreeMenu(menuList, item.id);
         const node = {
           key: item.id,
-          label: item.title,
+          label: t(item.title),
           icon: item.icon ? <IconComponent iconName={item.icon} /> : null,
           roles: ['admin', 'test'],
           children: child?.length ? child : null
