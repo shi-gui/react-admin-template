@@ -1,8 +1,16 @@
-import Layout from '@/layout';
-import { lazy, ReactNode } from 'react';
-import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import { lazy, ReactNode, Suspense } from 'react';
+import {
+  Route,
+  Routes,
+  useLocation,
+  Navigate,
+  type RouteObject
+} from 'react-router-dom';
 import { getToken } from '@/utils/store';
-// 导入组件
+import { Spin } from 'antd';
+// Layout不需要懒加载
+import Layout from '@/layout';
+// 导入组件(懒加载)
 const Login = lazy(() => import('@/views/login'));
 const Home = lazy(() => import('@/views/home'));
 const NotFound = lazy(() => import('@/views/404'));
@@ -13,52 +21,52 @@ const PermissionTest = lazy(() => import('@/views/permission/test'));
 const Menu1_1 = lazy(() => import('@/views/nest/menu1/menu1-1'));
 const Menu1_2_1 = lazy(() => import('@/views/nest/menu1/menu1-2/menu1-2-1'));
 
-export interface AppRouteObject {
-  path: string;
-  element: ReactNode;
-  children?: AppRouteObject[];
-}
+// 避免闪屏
+const lazyLoad = (conponent: ReactNode): ReactNode => {
+  return <Suspense fallback={<Spin />}>{conponent}</Suspense>;
+};
+
 const AppRouter = () => {
   const location = useLocation();
   const { pathname } = location;
   const token = getToken();
 
-  const routes: AppRouteObject[] = [
+  const routes: RouteObject[] = [
     {
       path: '/',
       element: <Layout />,
       children: [
         {
           path: '/',
-          element: <Home />
+          element: lazyLoad(<Home />)
         },
         {
           path: '/home',
-          element: <Home />
+          element: lazyLoad(<Home />)
         },
         {
           path: '/account/center',
-          element: <AccountCenter />
+          element: lazyLoad(<AccountCenter />)
         },
         {
           path: '/account/settings',
-          element: <AccountSettings />
+          element: lazyLoad(<AccountSettings />)
         },
         {
           path: '/permission/admin',
-          element: <PermissionAdmin />
+          element: lazyLoad(<PermissionAdmin />)
         },
         {
           path: '/permission/test',
-          element: <PermissionTest />
+          element: lazyLoad(<PermissionTest />)
         },
         {
           path: '/nest/menu1-1',
-          element: <Menu1_1 />
+          element: lazyLoad(<Menu1_1 />)
         },
         {
           path: '/nest/menu1-2-1',
-          element: <Menu1_2_1 />
+          element: lazyLoad(<Menu1_2_1 />)
         }
       ]
     },
@@ -72,7 +80,7 @@ const AppRouter = () => {
     }
   ];
 
-  const handleRedirect = (item: AppRouteObject) => {
+  const handleRedirect = (item: RouteObject) => {
     if (pathname === '/') {
       return <Navigate to="/home" />;
     }
@@ -83,7 +91,7 @@ const AppRouter = () => {
     }
   };
 
-  const RouteNav = (param: AppRouteObject[]) => {
+  const RouteNav = (param: RouteObject[]) => {
     return param.map(item => {
       return (
         <Route path={item.path} element={handleRedirect(item)} key={item.path}>

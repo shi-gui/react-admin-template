@@ -3,7 +3,15 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { TwitterOutlined } from '@ant-design/icons';
 import ParticlesBg from 'particles-bg';
 import type { LoginParams } from '@/api/login/login';
-import { setToken, setUserInfo, getLang, setLang } from '@/utils/store';
+import {
+  setToken,
+  setUserInfo,
+  getLang,
+  setLang,
+  getUserName,
+  setUserName,
+  removeUserName
+} from '@/utils/store';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
 import appConfig from '@/config';
@@ -23,7 +31,6 @@ function Login() {
 
   const handleLogin = (values: LoginParams) => {
     setLoading(true);
-    console.log('表单信息:' + values);
     setTimeout(() => {
       setLoading(false);
       const res = {
@@ -37,6 +44,7 @@ function Login() {
       };
       setToken(res.token);
       !getLang() && setLang(defaultLang);
+      values.remember ? setUserName(values.username) : removeUserName();
       setUserInfo(JSON.stringify(res.userInfo));
       navigate('/home');
     }, 1500);
@@ -52,16 +60,19 @@ function Login() {
         </div>
         <Form
           name="basic"
-          initialValues={{ remember: false }}
+          initialValues={{
+            remember: getUserName() ? true : false,
+            username: getUserName()
+          }}
           form={form}
           onFinish={handleLogin}
           autoComplete="off"
         >
           <Form.Item name="username" rules={rules.username}>
-            <Input placeholder={t('用户名')} />
+            <Input placeholder={t('用户名') + '：admin/test'} />
           </Form.Item>
           <Form.Item name="password" rules={rules.password}>
-            <Input placeholder={t('密码')} />
+            <Input placeholder={t('密码') + '：*'} />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked">
             <Checkbox>{t('记住账号')}</Checkbox>

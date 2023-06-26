@@ -41,3 +41,16 @@ export function setLang(lang: string) {
 export function removeLang() {
   localStorage.removeItem('lang');
 }
+
+/**
+ * username
+ */
+export function getUserName() {
+  return localStorage.getItem('username');
+}
+export function setUserName(username: string) {
+  localStorage.setItem('username', username);
+}
+export function removeUserName() {
+  localStorage.removeItem('username');
+}
