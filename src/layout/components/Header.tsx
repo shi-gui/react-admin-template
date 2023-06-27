@@ -110,7 +110,7 @@ const LayoutHeader = (props: Iprops) => {
     ];
     return (
       <Dropdown menu={{ items }} placement="bottom" trigger={['click']}>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer flex items-center">
           <img src={AvatarImg} className="w-8 h-8 mr-1" />
           <span>Admin User</span>
         </div>

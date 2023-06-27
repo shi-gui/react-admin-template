@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Layout } from 'antd';
 import LayoutHeader from './components/Header';
 import LayoutSider from './components/Sider';
+import LayoutTags from './components/Tags';
 import { Outlet } from 'react-router-dom';
 export interface Iprops {
   collapsed: boolean;
@@ -18,6 +19,7 @@ const LayoutMain = () => {
           collapsed={collapsed}
           setCollapsed={(val: boolean) => setCollapsed(val)}
         />
+        <LayoutTags />
         <Content
           style={{
             margin: '24px 16px',
