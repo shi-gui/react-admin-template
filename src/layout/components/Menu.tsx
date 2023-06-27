@@ -1,14 +1,26 @@
+import { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, type MenuProps } from 'antd';
-import { menuList, type MenuItem, type IconType } from '@/config/menu';
+import { menu, type MenuItem, type IconType } from '@/config/menu';
 import * as Icons from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { getUserInfo } from '@/utils/store';
 
 const LayoutMenu = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const { t } = useTranslation();
+  /**
+   * 过滤出有权限的菜单
+   */
+  const role = JSON.parse(getUserInfo() ?? '{}')?.role;
+  const menuList = menu.filter(item => item.roles.includes(role));
+  useEffect(() => {
+    const v = menuList.find(item => item.path === path && path !== 'login');
+    !v && navigate('/404');
+  }, [path]);
+
   /**
    *
    * @param param
@@ -21,7 +33,6 @@ const LayoutMenu = () => {
     }
     return <Component />;
   };
-
   /**
    *
    * @param menuList
