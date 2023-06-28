@@ -1,13 +1,22 @@
 import { Space, Tag } from 'antd';
+import { observer } from 'mobx-react';
+import rootStore from '@/store';
+import { type TagItem } from '@/store';
+import { useNavigate } from 'react-router-dom';
 
 const LayoutTags = () => {
-  const log = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e);
-  };
+  const navigate = useNavigate();
 
-  const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-    console.log('Clicked! But prevent default.');
+  const handleClick = (item: TagItem) => {
+    navigate(item.path);
+  };
+  const handleClose = (item: TagItem) => {
+    // 找到当前tag的前一个，并跳转至该页面
+    const index = rootStore.tag.findIndex((i: TagItem) => i.id === item.id);
+    const path = rootStore.tag[index - 1]?.path;
+    navigate(path);
+    // 删除当前tag
+    rootStore.removeTag(item.id);
   };
   return (
     <div
@@ -15,23 +24,19 @@ const LayoutTags = () => {
       style={{ borderTop: '1px solid #e8e8e8' }}
     >
       <Space size={[0, 8]} wrap>
-        <Tag>Tag 1211</Tag>
-        <Tag>
-          <a
-            className="text-12 pr-form"
-            href="https://github.com/ant-design/ant-design/issues/1862"
+        {rootStore.tag.map(item => (
+          <Tag
+            key={item.path}
+            closable={item.isClosed}
+            onClose={() => handleClose(item)}
           >
-            Link
-          </a>
-        </Tag>
-        <Tag closable onClose={log}>
-          Tag 2
-        </Tag>
-        <Tag closable onClose={preventDefault}>
-          Prevent Default
-        </Tag>
+            <span className="cursor-pointer" onClick={() => handleClick(item)}>
+              {item.title}
+            </span>
+          </Tag>
+        ))}
       </Space>
     </div>
   );
 };
-export default LayoutTags;
+export default observer(LayoutTags);

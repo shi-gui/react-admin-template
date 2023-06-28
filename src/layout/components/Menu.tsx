@@ -5,6 +5,7 @@ import { menu, type MenuItem, type IconType } from '@/config/menu';
 import * as Icons from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { getUserInfo } from '@/utils/store';
+import rootStore from '@/store';
 
 const LayoutMenu = () => {
   const navigate = useNavigate();
@@ -18,7 +19,16 @@ const LayoutMenu = () => {
   const menuList = menu.filter(item => item.roles.includes(role));
   useEffect(() => {
     const v = menuList.find(item => item.path === path && path !== 'login');
-    !v && navigate('/404');
+    if (v && v.path) {
+      rootStore.setTag({
+        id: v.id,
+        title: v.title,
+        path: v.path,
+        isClosed: true
+      });
+    } else {
+      !v && navigate('/404');
+    }
   }, [path]);
 
   /**
