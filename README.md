@@ -7,7 +7,14 @@
 - CSS：tailwind(3x)
 - HTTP 请求：Axios
 - 依赖管理：pnpm
+- 国际化：i18next、react-i18next
 - 构建系统：Vite(4x)
+
+## 三方插件
+
+- Cookie：[js-cookie](https://github.com/js-cookie/js-cookie)
+- 背景动画：[particles-bg](https://github.com/lindelof/particles-bg)
+- 滚动条：[react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
 
 ### 目录规划
 

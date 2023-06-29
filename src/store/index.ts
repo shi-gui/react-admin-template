@@ -37,6 +37,9 @@ class RootStore {
   removeTag(id: string) {
     this.tag = this.tag.filter(item => item.id !== id);
   }
+  removeAllTag() {
+    this.tag = this.tag.filter(item => !item.isClosed);
+  }
 }
 
 export default new RootStore();

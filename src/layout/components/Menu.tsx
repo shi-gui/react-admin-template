@@ -22,7 +22,7 @@ const LayoutMenu = () => {
     if (v && v.path) {
       rootStore.setTag({
         id: v.id,
-        title: v.title,
+        title: t(v.title),
         path: v.path,
         isClosed: true
       });

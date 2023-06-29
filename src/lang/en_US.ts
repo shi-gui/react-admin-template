@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
  * @LastEditors: liuhua
- * @LastEditTime: 2023-06-26 14:42:39
+ * @LastEditTime: 2023-06-29 11:27:22
  * @Description: 英语（美式）
  *
  */
@@ -27,5 +27,7 @@ export default {
   密码: 'password',
   记住账号: 'Remember me',
   忘记密码: 'Forget the password',
-  '没有账号?注册': `Don't have an account? Register`
+  '没有账号?注册': `Don't have an account? Register`,
+  关闭所有: 'Close All',
+  关闭其他: 'Close Other'
 };
