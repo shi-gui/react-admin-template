@@ -31,7 +31,7 @@ const LayoutTags = () => {
           if (v?.path) {
             rootStore.setTag({
               id: v.id,
-              title: t(v.title),
+              title: v.title,
               path: v.path,
               isClosed: true
             });
@@ -101,7 +101,7 @@ const LayoutTags = () => {
                   className="cursor-pointer"
                   onClick={() => handleClick(item)}
                 >
-                  {item.title}
+                  {t(item.title)}
                 </span>
               </Tag>
             ))}

@@ -19,10 +19,10 @@ const LayoutMenu = () => {
   const menuList = menu.filter(item => item.roles.includes(role));
   useEffect(() => {
     const v = menuList.find(item => item.path === path && path !== 'login');
-    if (v && v.path) {
+    if (v?.path) {
       rootStore.setTag({
         id: v.id,
-        title: t(v.title),
+        title: v.title,
         path: v.path,
         isClosed: true
       });

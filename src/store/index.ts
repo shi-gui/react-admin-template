@@ -1,5 +1,4 @@
 import { makeObservable, action, observable } from 'mobx';
-import i18next from '@/libs/i18n.ts';
 
 export interface TagItem {
   id: string;
@@ -22,8 +21,7 @@ class RootStore {
   tag: TagItem[] = [
     {
       id: '1',
-      // 可以在tag组件中进行国际化
-      title: i18next.t('首页'),
+      title: '首页',
       path: '/home',
       isClosed: false
     }
