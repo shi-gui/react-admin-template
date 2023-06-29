@@ -55,7 +55,7 @@ const LayoutMenu = () => {
   ) => {
     const tree: MenuProps['items'] = [];
     menuList.forEach(item => {
-      if (item.parentId === parentId) {
+      if (item.parentId === parentId && !item.isHide) {
         const child = convertTreeMenu(menuList, item.id);
         const node = {
           key: item.id,

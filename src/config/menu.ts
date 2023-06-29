@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: liuhua
- * @LastEditTime: 2023-06-27 11:08:46
+ * @LastEditTime: 2023-06-29 16:45:02
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -15,11 +15,12 @@ export interface MenuItem {
   path: string | null;
   roles: string[];
   icon?: IconType;
+  isHide?: boolean; // 是否在菜单栏隐藏
   parentId: string | null;
 }
 
 export const menu: MenuItem[] = [
-  // 首页
+  // 1、首页
   {
     id: '1',
     title: '首页',
@@ -28,7 +29,7 @@ export const menu: MenuItem[] = [
     icon: 'HomeOutlined',
     parentId: null
   },
-  // 权限测试
+  // 2、权限测试
   {
     id: '2',
     title: '权限测试',
@@ -51,7 +52,7 @@ export const menu: MenuItem[] = [
     roles: ['test'],
     parentId: '2'
   },
-  // 嵌套路由
+  // 3、嵌套路由
   {
     id: '3',
     title: '嵌套路由',
@@ -87,5 +88,23 @@ export const menu: MenuItem[] = [
     path: '/nest/menu1-2-1',
     roles: ['admin', 'test'],
     parentId: '312'
+  },
+  // 4、个人中心
+  {
+    id: '4',
+    title: '个人中心',
+    path: '/account/center',
+    roles: ['admin', 'test'],
+    isHide: true,
+    parentId: null
+  },
+  // 5、个人设置
+  {
+    id: '5',
+    title: '个人设置',
+    path: '/account/settings',
+    roles: ['admin', 'test'],
+    isHide: true,
+    parentId: null
   }
 ];

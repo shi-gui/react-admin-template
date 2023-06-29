@@ -36,8 +36,7 @@ const Index: React.FC<any> = () => {
 class Child extends Component<any, any> {
   static contextType = ThemeContext;
   render() {
-    const { border, setTheme, color, background, buttomType }: any =
-      this.context;
+    const { border, setTheme, color, buttomType }: any = this.context;
     return (
       <div style={{ border, color, padding: 20 }}>
         <div>
