@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import LayoutHeader from './components/Header';
 import LayoutSider from './components/Sider';
 import LayoutTags from './components/Tags';
+import LayoutTheme from './components/Theme';
 import { Outlet } from 'react-router-dom';
 export interface Iprops {
   collapsed: boolean;
@@ -29,6 +30,7 @@ const LayoutMain = () => {
         >
           <Outlet />
         </Content>
+        <LayoutTheme />
       </Layout>
     </Layout>
   );
