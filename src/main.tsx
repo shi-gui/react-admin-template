@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import '@/assets/css/index.less';
 import '@/libs/i18n.ts';
@@ -38,10 +38,10 @@ dayjs.locale(dayjsLocale[lang]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <ConfigProvider locale={antdLocale[lang]}>
         <App />
       </ConfigProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
