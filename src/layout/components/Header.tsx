@@ -22,6 +22,7 @@ import AvatarImg from '@/assets/img/avatar.png';
 import { useNavigate } from 'react-router-dom';
 import { setLang, getLang } from '@/utils/store';
 import { useTranslation } from 'react-i18next';
+import { startTransition } from 'react';
 
 const { Header } = Layout;
 
@@ -104,7 +105,9 @@ const LayoutHeader = (props: Iprops) => {
         icon: <PoweroffOutlined />,
         label: t('退出登录'),
         onClick: () => {
-          navigate('/login');
+          startTransition(() => {
+            navigate('/login');
+          });
         }
       }
     ];

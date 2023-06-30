@@ -16,7 +16,6 @@ const LayoutTheme = () => {
   };
   return (
     <>
-      {open}
       <Button
         type="primary"
         size="large"
