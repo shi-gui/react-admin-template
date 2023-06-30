@@ -19,7 +19,7 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        
+
         run: npm install -g pnpm@5.3 && pnpm install
 
       - name: Build
