@@ -94,7 +94,9 @@ const LayoutTags = () => {
                 key={item.id}
                 closable={item.isClosed}
                 color={
-                  item.path === location.pathname ? 'processing' : 'default'
+                  item.path === location.pathname
+                    ? theme.primaryColor
+                    : 'default'
                 }
                 onClose={() => handleClose(item)}
               >

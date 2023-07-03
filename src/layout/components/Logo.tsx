@@ -14,7 +14,7 @@ const LayoutLogo = (props: Iprops) => {
       />
 
       <span
-        className=" text-2xl"
+        className="text-2xl"
         style={{ display: collapsed ? 'none' : 'block' }}
       >
         Liuhua
