@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:19
  * @LastEditors: liuhua
- * @LastEditTime: 2023-06-30 16:58:17
+ * @LastEditTime: 2023-07-03 15:51:01
  * @Description: 繁体中文（中国香港）
  *
  */
@@ -30,5 +30,8 @@ export default {
   '没有账号?注册': '沒有賬號?註冊',
   关闭所有: '關閉所有',
   关闭其他: '關閉其他',
-  系统设置: '系統設置'
+  系统设置: '系統設置',
+  侧边栏Logo: '側邊欄Logo',
+  开启Tag: '開啟Tag',
+  主题色: '主題色'
 };

@@ -26,12 +26,12 @@ import { startTransition } from 'react';
 import rootStore from '@/store';
 
 const { Header } = Layout;
-const { removeAllTag } = rootStore;
 
 const LayoutHeader = (props: Iprops) => {
   const { collapsed, setCollapsed } = props;
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { removeAllTag } = rootStore;
 
   const MessageInfo = () => {
     const Content = () => {

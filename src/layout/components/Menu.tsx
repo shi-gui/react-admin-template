@@ -12,6 +12,7 @@ const LayoutMenu = () => {
   const location = useLocation();
   const path = location.pathname;
   const { t } = useTranslation();
+  const { setTag } = rootStore;
   /**
    * 过滤出有权限的菜单
    */
@@ -20,7 +21,7 @@ const LayoutMenu = () => {
   useEffect(() => {
     const v = menuList.find(item => item.path === path && path !== 'login');
     if (v?.path) {
-      rootStore.setTag({
+      setTag({
         id: v.id,
         title: v.title,
         path: v.path,

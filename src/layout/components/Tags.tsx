@@ -8,11 +8,11 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { useTranslation } from 'react-i18next';
 import { menu } from '@/config/menu';
 
-const { tag, setTag, removeTag, removeAllTag, theme } = rootStore;
 const LayoutTags = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useTranslation();
+  const { tag, setTag, removeTag, removeAllTag, theme } = rootStore;
 
   /**
    * @description tag关闭组件

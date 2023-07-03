@@ -3,8 +3,9 @@ import { ConfigProvider } from 'antd';
 import rootStore from '@/store';
 import { observer } from 'mobx-react';
 
-const { theme } = rootStore;
 function App() {
+  const { theme } = rootStore;
+
   return (
     <ConfigProvider
       theme={{
