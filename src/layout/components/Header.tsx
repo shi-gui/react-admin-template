@@ -20,11 +20,13 @@ import {
 import type { Iprops } from '@/layout';
 import AvatarImg from '@/assets/img/avatar.png';
 import { useNavigate } from 'react-router-dom';
-import { setLang, getLang } from '@/utils/store';
+import { setLang, getLang, removeThemeConfig } from '@/utils/store';
 import { useTranslation } from 'react-i18next';
 import { startTransition } from 'react';
+import rootStore from '@/store';
 
 const { Header } = Layout;
+const { removeAllTag } = rootStore;
 
 const LayoutHeader = (props: Iprops) => {
   const { collapsed, setCollapsed } = props;
@@ -106,6 +108,8 @@ const LayoutHeader = (props: Iprops) => {
         label: t('退出登录'),
         onClick: () => {
           startTransition(() => {
+            removeAllTag();
+            removeThemeConfig();
             navigate('/login');
           });
         }

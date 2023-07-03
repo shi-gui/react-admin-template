@@ -1,11 +1,15 @@
 import AppRouter from '@/router';
 import { ConfigProvider } from 'antd';
+import rootStore from '@/store';
+import { observer } from 'mobx-react';
+
+const { theme } = rootStore;
 function App() {
   return (
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#00b96b'
+          colorPrimary: theme.primaryColor
         }
       }}
     >
@@ -14,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

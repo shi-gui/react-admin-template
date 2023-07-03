@@ -8,6 +8,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { useTranslation } from 'react-i18next';
 import { menu } from '@/config/menu';
 
+const { tag, setTag, removeTag, removeAllTag, theme } = rootStore;
 const LayoutTags = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,10 +27,10 @@ const LayoutTags = () => {
            * 先清除所有
            * 在添加当前
            */
-          rootStore.removeAllTag();
+          removeAllTag();
           const v = menu.find(item => item.path === location.pathname);
           if (v?.path) {
-            rootStore.setTag({
+            setTag({
               id: v.id,
               title: v.title,
               path: v.path,
@@ -42,7 +43,7 @@ const LayoutTags = () => {
         key: '2',
         label: t('关闭所有'),
         onClick: () => {
-          rootStore.removeAllTag();
+          removeAllTag();
           navigate('/home');
         }
       }
@@ -69,13 +70,13 @@ const LayoutTags = () => {
      */
     const flag = location.pathname === item.path;
     if (flag) {
-      const index = rootStore.tag.findIndex((i: TagItem) => i.id === item.id);
-      const path = rootStore.tag[index - 1]?.path;
+      const index = tag.findIndex((i: TagItem) => i.id === item.id);
+      const path = tag[index - 1]?.path;
       navigate(path);
     }
-    rootStore.removeTag(item.id);
+    removeTag(item.id);
   };
-  return (
+  return theme.showTag ? (
     <div
       className="w-full h-[36px] bg-white flex items-center px-4"
       style={{ borderTop: '1px solid #e8e8e8' }}
@@ -88,7 +89,7 @@ const LayoutTags = () => {
       >
         <div className="flex items-center h-full">
           <Space size={[0, 8]} wrap className="!flex-nowrap">
-            {rootStore.tag.map(item => (
+            {tag.map(item => (
               <Tag
                 key={item.id}
                 closable={item.isClosed}
@@ -111,6 +112,6 @@ const LayoutTags = () => {
 
       <CloseTag />
     </div>
-  );
+  ) : null;
 };
 export default observer(LayoutTags);

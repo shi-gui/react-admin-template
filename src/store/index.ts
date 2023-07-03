@@ -1,4 +1,5 @@
 import { makeObservable, action, observable } from 'mobx';
+import { getThemeConfig, setThemeConfig } from '@/utils/store';
 
 export interface TagItem {
   id: string;
@@ -7,6 +8,14 @@ export interface TagItem {
   isClosed: boolean;
 }
 
+export interface ThemeType {
+  sidebarLogo: boolean;
+  showTag: boolean;
+  primaryColor: string;
+  [key: string]: string | boolean;
+}
+
+const config = JSON.parse(getThemeConfig() || '{}');
 class RootStore {
   constructor() {
     makeObservable(this, {
@@ -15,9 +24,17 @@ class RootStore {
        * action 表示指定该方法是一个action方法(bound: 表示自动绑定该方法的this)
        */
       tag: observable,
-      setTag: action.bound
+      setTag: action.bound,
+      removeTag: action.bound,
+      removeAllTag: action.bound,
+
+      theme: observable,
+      setTheme: action.bound
     });
   }
+  /**
+   * tag
+   */
   tag: TagItem[] = [
     {
       id: '1',
@@ -37,6 +54,19 @@ class RootStore {
   }
   removeAllTag() {
     this.tag = this.tag.filter(item => !item.isClosed);
+  }
+
+  /**
+   * theme 主题定制
+   */
+  theme: ThemeType = {
+    sidebarLogo: config?.sidebarLogo ?? true,
+    showTag: config?.showTag ?? true,
+    primaryColor: config?.primaryColor ?? '#1677ff'
+  };
+  setTheme(key: keyof ThemeType, value: string | boolean) {
+    this.theme[key] = value;
+    setThemeConfig(JSON.stringify(this.theme));
   }
 }
 

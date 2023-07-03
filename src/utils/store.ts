@@ -54,3 +54,16 @@ export function setUserName(username: string) {
 export function removeUserName() {
   localStorage.removeItem('username');
 }
+
+/**
+ * themeConfig
+ */
+export function getThemeConfig() {
+  return localStorage.getItem('themeConfig');
+}
+export function setThemeConfig(config: string) {
+  localStorage.setItem('themeConfig', config);
+}
+export function removeThemeConfig() {
+  localStorage.removeItem('themeConfig');
+}
