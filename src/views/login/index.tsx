@@ -85,18 +85,20 @@ function Login() {
               style={{ borderColor: theme.primaryColor }}
             />
           </Form.Item>
-          <Form.Item name="remember" valuePropName="checked">
-            <ConfigProvider
-              theme={{
-                token: {
-                  colorBgContainer: 'transparent',
-                  colorBorder: theme.primaryColor
-                }
-              }}
-            >
+
+          <ConfigProvider
+            theme={{
+              token: {
+                colorBgContainer: 'transparent',
+                colorBorder: theme.primaryColor
+              }
+            }}
+          >
+            <Form.Item name="remember" valuePropName="checked">
               <Checkbox>{t('记住账号')}</Checkbox>
-            </ConfigProvider>
-          </Form.Item>
+            </Form.Item>
+          </ConfigProvider>
+
           <Button
             type="primary"
             className="w-full h-10"
