@@ -1,5 +1,6 @@
 import { makeObservable, action, observable } from 'mobx';
 import { getThemeConfig, setThemeConfig } from '@/utils/store';
+import defaultTheme, { type ThemeType } from '@/config/theme';
 
 export interface TagItem {
   id: string;
@@ -8,14 +9,6 @@ export interface TagItem {
   isClosed: boolean;
 }
 
-export interface ThemeType {
-  sidebarLogo: boolean;
-  showTag: boolean;
-  primaryColor: string;
-  [key: string]: string | boolean;
-}
-
-const config = JSON.parse(getThemeConfig() || '{}');
 class RootStore {
   constructor() {
     makeObservable(this, {
@@ -59,11 +52,9 @@ class RootStore {
   /**
    * theme 主题定制
    */
-  theme: ThemeType = {
-    sidebarLogo: config?.sidebarLogo ?? true,
-    showTag: config?.showTag ?? true,
-    primaryColor: config?.primaryColor ?? '#1677ff'
-  };
+  theme: ThemeType = getThemeConfig()
+    ? JSON.parse(getThemeConfig() ?? '{}')
+    : defaultTheme;
   setTheme(key: keyof ThemeType, value: string | boolean) {
     this.theme[key] = value;
     setThemeConfig(JSON.stringify(this.theme));
