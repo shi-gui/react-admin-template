@@ -6,13 +6,14 @@ import * as Icons from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { getUserInfo } from '@/utils/store';
 import rootStore from '@/store';
+import { observer } from 'mobx-react';
 
 const LayoutMenu = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const { t } = useTranslation();
-  const { setTag } = rootStore;
+  const { setTag, theme } = rootStore;
   /**
    * 过滤出有权限的菜单
    */
@@ -109,7 +110,7 @@ const LayoutMenu = () => {
 
   return (
     <Menu
-      theme="dark"
+      theme={theme.mode}
       mode="inline"
       items={items}
       defaultOpenKeys={getDefaultOpenKeys()}
@@ -119,4 +120,4 @@ const LayoutMenu = () => {
   );
 };
 
-export default LayoutMenu;
+export default observer(LayoutMenu);

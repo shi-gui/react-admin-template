@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:38:28
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-03 15:50:29
+ * @LastEditTime: 2023-07-04 15:31:45
  * @Description: 简体中文
  *
  */
@@ -33,5 +33,6 @@ export default {
   系统设置: '系统设置',
   侧边栏Logo: '侧边栏Logo',
   开启Tag: '开启Tag',
-  主题色: '主题色'
+  主题色: '主题色',
+  风格: '风格'
 };

@@ -8,14 +8,17 @@ const LayoutLogo = (props: Iprops) => {
   const { theme } = rootStore;
 
   return theme.sidebarLogo ? (
-    <div className="flex items-center justify-center h-16 text-center text-gray-50 gap-2">
+    <div className="flex items-center justify-center h-16 text-center gap-2">
       <TwitterOutlined
         style={{ fontSize: '30px', color: theme.primaryColor }}
       />
 
       <span
         className="text-2xl"
-        style={{ display: collapsed ? 'none' : 'block' }}
+        style={{
+          display: collapsed ? 'none' : 'block',
+          color: theme.mode === 'dark' ? '#fff' : '#000'
+        }}
       >
         Liuhua
       </span>

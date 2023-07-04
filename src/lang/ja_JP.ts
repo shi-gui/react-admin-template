@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:47:28
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-03 15:52:26
+ * @LastEditTime: 2023-07-04 15:32:19
  * @Description: 日语
  *
  */
@@ -33,5 +33,6 @@ export default {
   系统设置: 'システム設定',
   侧边栏Logo: 'サイドバーのロゴ',
   开启Tag: '開いたタグ',
-  主题色: 'テーマカラー'
+  主题色: 'テーマカラー',
+  风格: 'スタイル'
 };

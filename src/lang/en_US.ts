@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-03 15:51:48
+ * @LastEditTime: 2023-07-04 15:32:06
  * @Description: 英语（美式）
  *
  */
@@ -33,5 +33,6 @@ export default {
   系统设置: 'System Settings',
   侧边栏Logo: 'Sidebar Logo',
   开启Tag: 'Open Tag',
-  主题色: 'Theme Color'
+  主题色: 'Theme Color',
+  风格: 'Style'
 };
