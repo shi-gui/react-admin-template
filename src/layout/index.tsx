@@ -23,9 +23,8 @@ const LayoutMain = () => {
         <LayoutTags />
         <Content
           style={{
-            margin: '24px 16px',
-            padding: 24,
-            background: '#fff'
+            margin: '16px',
+            padding: 0
           }}
         >
           <Outlet />

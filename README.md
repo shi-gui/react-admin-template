@@ -15,6 +15,7 @@
 - Cookie：[js-cookie](https://github.com/js-cookie/js-cookie)
 - 背景动画：[particles-bg](https://github.com/lindelof/particles-bg)
 - 滚动条：[react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
+- 工具函数:[loadsh](https://www.lodashjs.com/)
 
 ### 目录规划
 

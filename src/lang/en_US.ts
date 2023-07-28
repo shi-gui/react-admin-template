@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-04 15:32:06
+ * @LastEditTime: 2023-07-29 02:08:32
  * @Description: 英语（美式）
  *
  */
@@ -34,5 +34,10 @@ export default {
   侧边栏Logo: 'Sidebar Logo',
   开启Tag: 'Open Tag',
   主题色: 'Theme Color',
-  风格: 'Style'
+  风格: 'Style',
+  总销售额: 'Total sales',
+  指标说明: 'Indicator description',
+  周: 'Week',
+  日: 'Day',
+  日销售额: 'Daily sales'
 };

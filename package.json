@@ -24,6 +24,7 @@
     "mobx-react": "^7.6.0",
     "particles-bg": "^2.5.5",
     "react": "^18.2.0",
+    "react-countup": "^6.4.2",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.0.1",

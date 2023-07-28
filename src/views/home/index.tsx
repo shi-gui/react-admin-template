@@ -2,6 +2,7 @@ import { DatePicker, type DatePickerProps } from 'antd';
 import { observer } from 'mobx-react';
 import rootStore from '@/store';
 import Chart, { type ECOption } from '@/components/chart';
+import TopCard from './components/TopCard';
 
 function Home() {
   const { theme } = rootStore;
@@ -34,13 +35,14 @@ function Home() {
 
   return (
     <>
-      <DatePicker onChange={onChange} />
-      <Chart
+      <TopCard />
+      {/* <DatePicker onChange={onChange} /> */}
+      {/* <Chart
         width="100%"
         height={300}
         options={options}
         onClick={handleClick}
-      />
+      /> */}
     </>
   );
 }
