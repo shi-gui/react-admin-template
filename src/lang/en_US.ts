@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-29 13:19:11
+ * @LastEditTime: 2023-07-29 16:30:35
  * @Description: 英语（美式）
  *
  */
@@ -44,5 +44,12 @@ export default {
   日访问量: 'Daily visits',
   支付笔数: 'Number of payments',
   转化率: 'Conversion rate',
-  运营活动效果: 'Operation effect'
+  运营活动效果: 'Operation effect',
+  号店: 'number shop',
+  月: 'month',
+  门店销售额: 'Store sales',
+  双流区: 'Shuangliu district',
+  门店访问量: 'Store visits',
+  销售额: 'Sales',
+  成华区: 'Chenghua district'
 };

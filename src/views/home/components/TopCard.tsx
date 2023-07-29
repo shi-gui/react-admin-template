@@ -246,7 +246,7 @@ function TopCard() {
   };
 
   return (
-    <Row gutter={[16, 16]}>
+    <Row gutter={[16, 16]} className="mb-5">
       <Col xl={6} span={12}>
         <CardOne />
       </Col>
