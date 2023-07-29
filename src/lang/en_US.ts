@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
  * @LastEditors: liuhua
- * @LastEditTime: 2023-07-29 02:08:32
+ * @LastEditTime: 2023-07-29 13:19:11
  * @Description: 英语（美式）
  *
  */
@@ -39,5 +39,10 @@ export default {
   指标说明: 'Indicator description',
   周: 'Week',
   日: 'Day',
-  日销售额: 'Daily sales'
+  日销售额: 'Daily sales',
+  访问量: 'Views',
+  日访问量: 'Daily visits',
+  支付笔数: 'Number of payments',
+  转化率: 'Conversion rate',
+  运营活动效果: 'Operation effect'
 };
