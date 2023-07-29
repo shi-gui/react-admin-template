@@ -178,7 +178,17 @@ const LayoutHeader = (props: Iprops) => {
   };
 
   return (
-    <Header className="bg-white pl-0 pr-3 flex justify-between">
+    <Header
+      className="bg-white pl-0 pr-3 flex justify-between"
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center'
+      }}
+    >
       <Button
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}

@@ -15,7 +15,7 @@ const LayoutMain = () => {
   return (
     <Layout className="h-full">
       <LayoutSider collapsed={collapsed} />
-      <Layout>
+      <Layout className={collapsed ? 'ml-[84px]' : 'ml-[200px]'}>
         <LayoutHeader
           collapsed={collapsed}
           setCollapsed={(val: boolean) => setCollapsed(val)}

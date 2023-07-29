@@ -11,7 +11,21 @@ const LayoutSider = (props: Iprops) => {
   const { theme } = rootStore;
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed} theme={theme.mode}>
+    <Sider
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+      theme={theme.mode}
+      style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        zIndex: 999,
+        left: 0,
+        top: 0,
+        bottom: 0
+      }}
+    >
       <LayoutLogo collapsed={collapsed} />
       <LayoutMenu />
     </Sider>
