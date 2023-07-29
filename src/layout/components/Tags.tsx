@@ -79,7 +79,15 @@ const LayoutTags = () => {
   return theme.showTag ? (
     <div
       className="w-full h-[36px] bg-white flex items-center px-4"
-      style={{ borderTop: '1px solid #e8e8e8' }}
+      style={{
+        borderTop: '1px solid #e8e8e8',
+        position: 'sticky',
+        top: '64px',
+        zIndex: 1,
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center'
+      }}
     >
       <Scrollbars
         autoHide
