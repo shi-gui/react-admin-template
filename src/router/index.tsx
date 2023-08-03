@@ -20,6 +20,10 @@ const PermissionAdmin = lazy(() => import('@/views/permission/admin'));
 const PermissionTest = lazy(() => import('@/views/permission/test'));
 const Menu1_1 = lazy(() => import('@/views/nest/menu1/menu1-1'));
 const Menu1_2_1 = lazy(() => import('@/views/nest/menu1/menu1-2/menu1-2-1'));
+// table
+const BaseTable = lazy(() => import('@/views/table/base-table'));
+const SearchTable = lazy(() => import('@/views/table/search-table'));
+const DragTable = lazy(() => import('@/views/table/darg-table'));
 
 // 避免闪屏
 const lazyLoad = (conponent: ReactNode): ReactNode => {
@@ -67,6 +71,19 @@ const AppRouter = () => {
         {
           path: '/nest/menu1-2-1',
           element: lazyLoad(<Menu1_2_1 />)
+        },
+        // table
+        {
+          path: '/table/basic',
+          element: lazyLoad(<BaseTable />)
+        },
+        {
+          path: '/table/search',
+          element: lazyLoad(<SearchTable />)
+        },
+        {
+          path: '/table/drag',
+          element: lazyLoad(<DragTable />)
         }
       ]
     },

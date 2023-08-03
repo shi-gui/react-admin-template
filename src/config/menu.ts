@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: liuhua
- * @LastEditTime: 2023-06-29 16:45:02
+ * @LastEditTime: 2023-08-04 01:39:24
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -106,5 +106,35 @@ export const menu: MenuItem[] = [
     roles: ['admin', 'test'],
     isHide: true,
     parentId: null
+  },
+  // 6、表格
+  {
+    id: '6',
+    title: '表格',
+    path: null,
+    icon: 'InsertRowAboveOutlined',
+    roles: ['admin', 'test'],
+    parentId: null
+  },
+  {
+    id: '61',
+    title: '基础表格',
+    path: '/table/basic',
+    roles: ['admin', 'test'],
+    parentId: '6'
+  },
+  {
+    id: '62',
+    title: '搜索条件',
+    path: '/table/search',
+    roles: ['admin', 'test'],
+    parentId: '6'
+  },
+  {
+    id: '63',
+    title: '拖拽表格',
+    path: '/table/drag',
+    roles: ['admin', 'test'],
+    parentId: '6'
   }
 ];
