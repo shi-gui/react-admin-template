@@ -6,7 +6,7 @@
 - UI：Ant Design(5x)
 - CSS：tailwind(3x)
 - HTTP 请求：Axios
-- 依赖管理：pnpm
+- 依赖管理：Pnpm
 - 国际化：i18next、react-i18next
 - 构建系统：Vite(4x)
 
@@ -17,7 +17,7 @@
 - 滚动条：[react-custom-scrollbars](https://github.com/malte-wessel/react-custom-scrollbars)
 - 工具函数:[loadsh](https://www.lodashjs.com/)
 
-### 目录规划
+## 目录规划
 
 ```js
 |- dist // 构建成果
@@ -58,22 +58,22 @@ pnpm run build
 
 ```
 
-### 项目规范
+## 项目规范
 
 - 代码规范：eslint + pritter
 - 提交规范：githooks（husky）
 - api 接口约定（按照 views 页面分组进行接口抽离）
 - git 分支策略
 
-### 项目实现的功能概览
+## 项目实现的功能概览
 
 - 主题切换
 - 国际化
 
-### 功能及 UI 参考
+## 功能及 UI 参考
 
 - https://github.com/yezihaohao/react-admin/tree/master
 - https://github.com/NLRX-WJC/react-antd-admin-template
 - https://github.com/ant-design/ant-design-pro
 
-### 性能优化
+## 性能优化
