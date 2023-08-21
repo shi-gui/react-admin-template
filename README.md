@@ -4,7 +4,7 @@
 
 - 核心：TypeScript(5x) + React18(18x) + ReactRouter(6x) + Mobx(6x)
 - UI：Ant Design(5x)
-- CSS：tailwind(3x)
+- CSS：Tailwind(3x)
 - HTTP 请求：Axios
 - 依赖管理：Pnpm
 - 国际化：i18next、react-i18next
