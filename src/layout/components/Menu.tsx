@@ -104,8 +104,18 @@ const LayoutMenu = () => {
   }
 
   const handleClick = ({ key }: { key: string }) => {
-    const path = menuList.find(item => item.id === key)?.path;
-    path && navigate(path);
+    const route = menuList.find(item => item.id === key);
+    if (!route?.path) return;
+
+    const { target, path } = route;
+    if (target) {
+      // TODO hash模式跳转方式
+      const { origin, pathname } = window.location;
+      const fullPath = origin + pathname + '#' + path;
+      window.open(fullPath);
+    } else {
+      navigate(path);
+    }
   };
 
   return (

@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-05-22 09:58:17
+ * @LastEditTime: 2024-05-22 15:32:55
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -14,9 +14,10 @@ export interface MenuItem {
   title: string;
   path: string | null;
   roles: string[];
+  parentId: string | null;
   icon?: IconType;
   isHide?: boolean; // 是否在菜单栏隐藏
-  parentId: string | null;
+  target?: '_blank'; // 是否新开窗口
 }
 
 export const menu: MenuItem[] = [
@@ -29,7 +30,7 @@ export const menu: MenuItem[] = [
     icon: 'HomeOutlined',
     parentId: null
   },
-  // 2、权限测试
+  // 2、权限页面
   {
     id: '2',
     title: '权限页面',
@@ -143,5 +144,30 @@ export const menu: MenuItem[] = [
     path: '/table/drag',
     roles: ['admin', 'test'],
     parentId: '6'
+  },
+  // 7、大屏
+  {
+    id: '7',
+    title: '大屏',
+    path: null,
+    icon: 'AreaChartOutlined',
+    roles: ['admin', 'test'],
+    parentId: null
+  },
+  {
+    id: '71',
+    title: '智慧城市',
+    path: '/screen/city',
+    roles: ['admin', 'test'],
+    parentId: '7',
+    target: '_blank'
+  },
+  {
+    id: '72',
+    title: '智慧气象',
+    path: '/screen/atmosphere',
+    roles: ['admin', 'test'],
+    parentId: '7',
+    target: '_blank'
   }
 ];

@@ -27,6 +27,9 @@ const Menu1_2_1 = lazy(() => import('@/views/nest/menu1/menu1-2/menu1-2-1'));
 const BaseTable = lazy(() => import('@/views/table/base-table'));
 const SearchTable = lazy(() => import('@/views/table/search-table'));
 const DragTable = lazy(() => import('@/views/table/darg-table'));
+// screen
+const ScreenCity = lazy(() => import('@/views/screen/city'));
+const ScreenAtmosphere = lazy(() => import('@/views/screen/atmosphere'));
 
 // 避免闪屏
 const lazyLoad = (conponent: ReactNode): ReactNode => {
@@ -51,6 +54,7 @@ const AppRouter = () => {
           path: '/home',
           element: lazyLoad(<Home />)
         },
+        // account
         {
           path: '/account/center',
           element: lazyLoad(<AccountCenter />)
@@ -99,6 +103,15 @@ const AppRouter = () => {
     {
       path: '/login',
       element: <Login />
+    },
+    // screen
+    {
+      path: '/screen/city',
+      element: lazyLoad(<ScreenCity />)
+    },
+    {
+      path: '/screen/atmosphere',
+      element: lazyLoad(<ScreenAtmosphere />)
     },
     {
       path: '*',
