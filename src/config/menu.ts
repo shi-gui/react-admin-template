@@ -1,8 +1,8 @@
 /*
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
- * @LastEditors: liuhua
- * @LastEditTime: 2023-08-04 01:39:24
+ * @LastEditors: zhangshigui
+ * @LastEditTime: 2024-05-22 09:58:17
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -32,7 +32,7 @@ export const menu: MenuItem[] = [
   // 2、权限测试
   {
     id: '2',
-    title: '权限测试',
+    title: '权限页面',
     path: null,
     icon: 'LockOutlined',
     roles: ['admin', 'test'],
@@ -40,14 +40,21 @@ export const menu: MenuItem[] = [
   },
   {
     id: '21',
-    title: '管理员页面',
+    title: '权限说明',
+    path: '/permission/explain',
+    roles: ['admin', 'test'],
+    parentId: '2'
+  },
+  {
+    id: '22',
+    title: 'admin页面',
     path: '/permission/admin',
     roles: ['admin'],
     parentId: '2'
   },
   {
-    id: '22',
-    title: '测试页面',
+    id: '23',
+    title: 'test页面',
     path: '/permission/test',
     roles: ['test'],
     parentId: '2'

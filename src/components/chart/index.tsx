@@ -15,9 +15,9 @@ function Chart(props: IProps) {
   /**
    * 宽高处理，支持传入数字、字符串（百分比）
    */
-  const w = typeof props.width === 'number' ? props.width + 'px' : props.width;
-  const h =
-    typeof props.height === 'number' ? props.height + 'px' : props.height;
+  const { width, height } = props;
+  const w = typeof width === 'number' ? width + 'px' : width;
+  const h = typeof height === 'number' ? height + 'px' : height;
 
   const chartRef = useRef(null);
   useEffect(() => {

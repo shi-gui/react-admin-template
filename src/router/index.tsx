@@ -16,8 +16,11 @@ const Home = lazy(() => import('@/views/home'));
 const NotFound = lazy(() => import('@/views/404'));
 const AccountCenter = lazy(() => import('@/views/account/center'));
 const AccountSettings = lazy(() => import('@/views/account/settings'));
+// permission
+const PermissionExplain = lazy(() => import('@/views/permission/explain'));
 const PermissionAdmin = lazy(() => import('@/views/permission/admin'));
 const PermissionTest = lazy(() => import('@/views/permission/test'));
+// nest
 const Menu1_1 = lazy(() => import('@/views/nest/menu1/menu1-1'));
 const Menu1_2_1 = lazy(() => import('@/views/nest/menu1/menu1-2/menu1-2-1'));
 // table
@@ -56,6 +59,11 @@ const AppRouter = () => {
           path: '/account/settings',
           element: lazyLoad(<AccountSettings />)
         },
+        // permission
+        {
+          path: '/permission/explain',
+          element: lazyLoad(<PermissionExplain />)
+        },
         {
           path: '/permission/admin',
           element: lazyLoad(<PermissionAdmin />)
@@ -64,6 +72,7 @@ const AppRouter = () => {
           path: '/permission/test',
           element: lazyLoad(<PermissionTest />)
         },
+        // nest
         {
           path: '/nest/menu1-1',
           element: lazyLoad(<Menu1_1 />)

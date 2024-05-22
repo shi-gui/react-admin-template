@@ -63,7 +63,7 @@ const LayoutMenu = () => {
           key: item.id,
           label: t(item.title),
           icon: item.icon ? <IconComponent iconName={item.icon} /> : null,
-          roles: ['admin', 'test'],
+          roles: item.roles,
           children: child?.length ? child : null
         };
         tree.push(node);
