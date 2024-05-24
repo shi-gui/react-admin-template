@@ -1,13 +1,65 @@
 .screen-city {
-  background-image: url('@/assets/img/screen/city_bg.jpg');
-  background-repeat: no-repeat;
-  @apply w-full h-full text-white;
+  background: url('@/assets/img/screen/city_bg.jpg') no-repeat;
+  min-height: 100%;
   .screen-city-header {
-    background-image: url('@/assets/img/screen/city_header_bg.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background: url('@/assets/img/screen/city_header_bg.png') no-repeat 100%
+      100%;
     height: 100px;
     text-align: center;
-    @apply text-white;
+  }
+  .screen-city-content {
+    min-width: 1024px;
+    max-width: 1920px;
+    display: flex;
+    column-gap: 10px;
+    color: #fff;
+    padding: 10px;
+  }
+
+  // 公共class
+  .chart-box {
+    height: 305px;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+    background: rgba(255, 255, 255, 0.04);
+    position: relative;
+    margin-bottom: 15px;
+    padding: 10px;
+    // 上左、上右
+    &::before,
+    &::after {
+      width: 20px;
+      height: 20px;
+      content: '';
+      border-top: 2px solid #02a6b5;
+      position: absolute;
+      top: 0;
+    }
+    &::before {
+      left: 0;
+      border-left: 2px solid #02a6b5;
+    }
+    &::after {
+      right: 0;
+      border-right: 2px solid #02a6b5;
+    }
+
+    // 下左、下右
+    & .chart-box-suffix::before,
+    & .chart-box-suffix::after {
+      width: 20px;
+      height: 20px;
+      content: '';
+      border-bottom: 2px solid #02a6b5;
+      position: absolute;
+      bottom: 0;
+    }
+    & .chart-box-suffix::before {
+      left: 0;
+      border-left: 2px solid #02a6b5;
+    }
+    & .chart-box-suffix::after {
+      right: 0;
+      border-right: 2px solid #02a6b5;
+    }
   }
 }

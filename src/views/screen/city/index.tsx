@@ -7,7 +7,9 @@ import './index.less';
 const ScreenCity = () => {
   return (
     <div className="screen-city">
-      <Header />
+      <div className="screen-city-header">
+        <Header />
+      </div>
       <div className="screen-city-content">
         <LeftPanel />
         <CenterPanel />

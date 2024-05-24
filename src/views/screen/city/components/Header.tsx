@@ -15,10 +15,12 @@ const Header = () => {
   });
 
   return (
-    <div className="screen-city-header">
-      <h1>智慧城市</h1>
-      <div>当前时间：{time}</div>
-    </div>
+    <>
+      <h1 className="leading-[80px] text-white">智慧城市</h1>
+      <div className="absolute top-0 right-10 text-gray-100 leading-[70px]">
+        当前时间：{time}
+      </div>
+    </>
   );
 };
 
