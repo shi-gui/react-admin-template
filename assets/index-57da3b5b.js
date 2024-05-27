@@ -1,1 +1,0 @@
-import{a2 as s,au as e}from"./index-36309c2a.js";const a=()=>s.jsxs("div",{className:"bg-white h-full",children:[s.jsx("div",{className:"pl-4 pt-6 text-16 font-bold",children:"admin页面"}),s.jsx(e,{}),s.jsx("p",{className:"px-4",children:"这个页面只有admin角色才可以访问，test角色看不到"})]});export{a as default};
