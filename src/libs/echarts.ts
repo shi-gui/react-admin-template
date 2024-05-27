@@ -1,17 +1,18 @@
 /*
  * @Author: liuhua
  * @Date: 2023-07-04 10:10:20
- * @LastEditors: liuhua
- * @LastEditTime: 2023-07-04 10:46:58
+ * @LastEditors: zhangshigui
+ * @LastEditTime: 2024-05-27 11:28:40
  * @Description: echarts按需引入
  */
 
 import * as echarts from 'echarts/core';
-import { BarChart, LineChart } from 'echarts/charts';
+import { BarChart, LineChart, PieChart } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
   GridComponent,
+  LegendComponent,
   // 数据集组件
   DatasetComponent,
   // 内置数据转换器组件 (filter, sort)
@@ -22,7 +23,8 @@ import { CanvasRenderer } from 'echarts/renderers';
 import type {
   // 系列类型的定义后缀都为 SeriesOption
   BarSeriesOption,
-  LineSeriesOption
+  LineSeriesOption,
+  PieSeriesOption
 } from 'echarts/charts';
 import type {
   // 组件类型的定义后缀都为 ComponentOption
@@ -37,6 +39,7 @@ import type { ComposeOption } from 'echarts/core';
 export type ECOption = ComposeOption<
   | BarSeriesOption
   | LineSeriesOption
+  | PieSeriesOption
   | TitleComponentOption
   | TooltipComponentOption
   | GridComponentOption
@@ -47,11 +50,13 @@ export type ECOption = ComposeOption<
 echarts.use([
   TitleComponent,
   TooltipComponent,
+  LegendComponent,
   GridComponent,
   DatasetComponent,
   TransformComponent,
   BarChart,
   LineChart,
+  PieChart,
   LabelLayout,
   UniversalTransition,
   CanvasRenderer
