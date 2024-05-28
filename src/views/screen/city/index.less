@@ -69,4 +69,54 @@
       line-height: 20px;
     }
   }
+
+  .map-box {
+    &-top {
+      height: 160px;
+      background: rgba(101, 132, 226, 0.1);
+      padding: 10px;
+      .value {
+        display: flex;
+        align-items: center;
+        font-size: 64px;
+        font-family: electronicFont;
+        color: #ffeb7b;
+        border: 1px solid rgba(25, 186, 139, 0.17);
+        padding: 10px;
+        position: relative;
+        &::before {
+          width: 30px;
+          height: 15px;
+          content: '';
+          border-top: 2px solid #02a6b5;
+          border-left: 2px solid #02a6b5;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &::after {
+          width: 30px;
+          height: 15px;
+          content: '';
+          border-bottom: 2px solid #02a6b5;
+          border-right: 2px solid #02a6b5;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+        .divider {
+          width: 1px;
+          height: 40px;
+          background: rgba(255, 255, 255, 0.7);
+        }
+      }
+      .label {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 18px;
+        margin-top: 15px;
+      }
+    }
+  }
 }
