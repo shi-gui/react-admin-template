@@ -30,6 +30,8 @@ const DragTable = lazy(() => import('@/views/table/darg-table'));
 // screen
 const ScreenCity = lazy(() => import('@/views/screen/city'));
 const ScreenAtmosphere = lazy(() => import('@/views/screen/atmosphere'));
+// process
+const Process = lazy(() => import('@/views/process'));
 
 // 避免闪屏
 const lazyLoad = (conponent: ReactNode): ReactNode => {
@@ -97,6 +99,11 @@ const AppRouter = () => {
         {
           path: '/table/drag',
           element: lazyLoad(<DragTable />)
+        },
+        // process
+        {
+          path: '/process',
+          element: lazyLoad(<Process />)
         }
       ]
     },
