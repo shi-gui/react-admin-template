@@ -1,3 +1,6 @@
+import Chart from '@/components/chart';
+import { MapOption } from '../chartConfig';
+
 export const CenterPanel = () => {
   return (
     <div className="map-box w-[40%]">
@@ -13,7 +16,9 @@ export const CenterPanel = () => {
         </div>
       </div>
 
-      <div className="map-box-bottom">下面的内容</div>
+      <div className="map-box-bottom">
+        <Chart height="700px" width="100%" options={MapOption()} />;
+      </div>
     </div>
   );
 };

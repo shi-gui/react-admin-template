@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-05-27 11:11:43
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-05-27 14:48:05
+ * @LastEditTime: 2024-05-29 14:16:28
  * @Description: 智慧城市大屏echarts配置
  *
  */
@@ -673,4 +673,88 @@ export const CityPeopleOption: ECOption = {
       ]
     }
   ]
+};
+
+export const MapOption = (): ECOption => {
+  const dataList = [
+    { name: '北京市', value: 69 },
+    { name: '天津市', value: 12 },
+    { name: '河北省', value: 101 },
+    { name: '山西省', value: 86 },
+    { name: '内蒙古自治区', value: 14 },
+    { name: '辽宁省', value: 15 },
+    { name: '吉林省', value: 24 },
+    { name: '黑龙江省', value: 32 },
+    { name: '上海市', value: 18 },
+    { name: '江苏省', value: 18 },
+    { name: '浙江省', value: 19 },
+    { name: '安徽省', value: 21 },
+    { name: '福建省', value: 90 },
+    { name: '江西省', value: 68 },
+    { name: '山东省', value: 87 },
+    { name: '河南省', value: 14 },
+    { name: '湖北省', value: 56 },
+    { name: '湖南省', value: 54 },
+    { name: '广东省', value: 132 },
+    { name: '广西壮族自治区', value: 243 },
+    { name: '海南省', value: 298 },
+    { name: '重庆市', value: 23 },
+    { name: '四川省', value: 11 },
+    { name: '贵州省', value: 55 },
+    { name: '云南省', value: 44 },
+    { name: '西藏自治区', value: 27 },
+    { name: '陕西省', value: 76 },
+    { name: '甘肃省', value: 48 },
+    { name: '青海省', value: 418 },
+    { name: '宁夏回族自治区', value: 11 },
+    { name: '新疆维吾尔自治区', value: 13 },
+    { name: '台湾省', value: 131 },
+    { name: '香港特别行政区', value: 34 },
+    { name: '澳门特别行政区', value: 124 }
+  ];
+
+  return {
+    tooltip: {
+      trigger: 'item',
+      showDelay: 0,
+      transitionDuration: 0.2,
+      formatter: (params: any) => {
+        const { data = {} } = params;
+        const { value = 0 } = data;
+        return `${params.name}<br/>数量: ${value}`;
+      }
+    },
+    series: {
+      data: dataList,
+      type: 'map',
+      map: 'china',
+      roam: true, // 地图拖动、缩放
+      top: '10%', // 距离顶部距离
+      zoom: 1.2, // 当前视角的缩放比例
+      scaleLimit: {
+        max: 2,
+        min: 1 // 设置默认缩放效果
+      },
+      label: {
+        show: true, // 默认状态下，显示省市名称
+        position: [1, 100], // 相对的百分比
+        fontSize: 12,
+        offset: [2, 0],
+        align: 'left',
+        color: '#e9e7dd'
+      },
+      itemStyle: {
+        areaColor: '#1a88b9', // 地图图形颜色 #fff
+        borderColor: '#a0d4e7', // 地图边框线色
+        borderWidth: 1 // 地图边框线宽
+      },
+      // 高亮状态下的多边形和文本样式，鼠标悬浮在地图块上的效果
+      emphasis: {
+        itemStyle: {
+          areaColor: '#ccc',
+          borderColor: '#4aacd9'
+        }
+      }
+    }
+  };
 };

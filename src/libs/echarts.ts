@@ -2,12 +2,12 @@
  * @Author: liuhua
  * @Date: 2023-07-04 10:10:20
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-05-27 11:28:40
+ * @LastEditTime: 2024-05-29 11:12:10
  * @Description: echarts按需引入
  */
 
 import * as echarts from 'echarts/core';
-import { BarChart, LineChart, PieChart } from 'echarts/charts';
+import { BarChart, LineChart, PieChart, MapChart } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
@@ -24,7 +24,8 @@ import type {
   // 系列类型的定义后缀都为 SeriesOption
   BarSeriesOption,
   LineSeriesOption,
-  PieSeriesOption
+  PieSeriesOption,
+  MapSeriesOption
 } from 'echarts/charts';
 import type {
   // 组件类型的定义后缀都为 ComponentOption
@@ -34,12 +35,14 @@ import type {
   DatasetComponentOption
 } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
+import { geoJson } from '@/config/geoJson';
 
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 export type ECOption = ComposeOption<
   | BarSeriesOption
   | LineSeriesOption
   | PieSeriesOption
+  | MapSeriesOption
   | TitleComponentOption
   | TooltipComponentOption
   | GridComponentOption
@@ -59,6 +62,11 @@ echarts.use([
   PieChart,
   LabelLayout,
   UniversalTransition,
-  CanvasRenderer
+  CanvasRenderer,
+  MapChart
 ]);
+
+// 注册地图
+echarts.registerMap('china', geoJson as any);
+
 export default echarts;
