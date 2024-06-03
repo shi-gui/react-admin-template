@@ -1,0 +1,1 @@
+import{$ as s,as as e}from"./index-f0bb976d.js";const a=()=>s.jsxs("div",{className:"bg-white h-full",children:[s.jsx("div",{className:"pl-4 pt-6 text-16 font-bold",children:"菜单1-1"}),s.jsx(e,{}),s.jsx("p",{className:"px-4",children:"Menu1_1"})]});export{a as default};
