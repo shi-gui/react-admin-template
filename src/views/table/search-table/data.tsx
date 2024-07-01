@@ -117,5 +117,32 @@ export const data: DataType[] = [
     address: '陕西省西安市莲湖区',
     job: '后端工程师',
     updateTime: '2024-05-31 12:00:00'
+  },
+  {
+    key: '9',
+    name: '李明',
+    age: 21,
+    sex: 1,
+    address: '北京市朝阳区',
+    job: 'UI设计师',
+    updateTime: '2024-05-18 12:00:00'
+  },
+  {
+    key: '10',
+    name: '刘禅',
+    age: 321,
+    sex: 1,
+    address: '四川省成都市成华区',
+    job: '皇帝',
+    updateTime: '2024-06-02 12:00:00'
+  },
+  {
+    key: '11',
+    name: '大风起',
+    age: 19,
+    sex: 1,
+    address: '天津市和平区',
+    job: '自由职业者',
+    updateTime: '2024-06-06 12:00:00'
   }
 ];
