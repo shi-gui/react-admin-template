@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-05-29 15:07:40
+ * @LastEditTime: 2024-07-22 11:41:57
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -158,14 +158,6 @@ export const menu: MenuItem[] = [
     id: '71',
     title: '智慧城市',
     path: '/screen/city',
-    roles: ['admin', 'test'],
-    parentId: '7',
-    target: '_blank'
-  },
-  {
-    id: '72',
-    title: '智慧气象',
-    path: '/screen/atmosphere',
     roles: ['admin', 'test'],
     parentId: '7',
     target: '_blank'

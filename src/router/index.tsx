@@ -29,7 +29,6 @@ const SearchTable = lazy(() => import('@/views/table/search-table'));
 const DragTable = lazy(() => import('@/views/table/darg-table'));
 // screen
 const ScreenCity = lazy(() => import('@/views/screen/city'));
-const ScreenAtmosphere = lazy(() => import('@/views/screen/atmosphere'));
 // process
 const Process = lazy(() => import('@/views/process'));
 
@@ -115,10 +114,6 @@ const AppRouter = () => {
     {
       path: '/screen/city',
       element: lazyLoad(<ScreenCity />)
-    },
-    {
-      path: '/screen/atmosphere',
-      element: lazyLoad(<ScreenAtmosphere />)
     },
     {
       path: '*',
