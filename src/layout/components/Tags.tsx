@@ -78,7 +78,7 @@ const LayoutTags = () => {
   };
   return theme.showTag ? (
     <div
-      className="w-full h-[36px] bg-white flex items-center px-4"
+      className="w-full bg-white flex items-center px-4"
       style={{
         borderTop: '1px solid #e8e8e8',
         position: 'sticky',
@@ -94,6 +94,7 @@ const LayoutTags = () => {
         autoHideTimeout={500}
         autoHideDuration={200}
         hideTracksWhenNotNeeded={true}
+        style={{ height: '36px' }}
       >
         <div className="flex items-center h-full">
           <Space size={[0, 8]} wrap className="!flex-nowrap">
