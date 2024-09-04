@@ -1,27 +1,28 @@
-import { Graph } from '@antv/x6';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import { data } from './constants/data';
+import GraphMain from './shapes/index';
+import './index.less';
 
 const Process = () => {
-  const container = useRef(null);
-  useEffect(() => {
-    if (container.current) {
-      const graph = new Graph({
-        container: container.current,
-        width: 800,
-        height: 600,
-        background: {
-          color: '#F2F7FA'
-        }
-      });
+  const map = useRef(null);
+  const minMap = useRef(null);
 
-      graph.fromJSON(data);
+  let graphMain;
+  useEffect(() => {
+    if (graphMain) return;
+
+    graphMain = new GraphMain();
+    if (map.current && minMap.current) {
+      graphMain.createGraph(map.current, minMap.current);
     }
   });
   return (
-    <div>
-      <div ref={container} />
+    <div className="graph-container">
+      {/* 画布容器 */}
+      <div id="map" ref={map} />
+
+      {/* 小地图容器 */}
+      <div id="min-map" ref={minMap} />
     </div>
   );
 };

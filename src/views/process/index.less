@@ -1,0 +1,32 @@
+.graph-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+  #min-map {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    .x6-widget-minimap {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      .x6-graph {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .x6-widget-minimap-viewport {
+        width: 90px !important;
+        height: 60px !important;
+        border-radius: 2px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 100vh;
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

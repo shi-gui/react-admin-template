@@ -11,6 +11,12 @@ dependencies:
   '@antv/x6':
     specifier: ^2.18.1
     version: 2.18.1
+  '@antv/x6-plugin-minimap':
+    specifier: ^2.0.7
+    version: 2.0.7(@antv/x6@2.18.1)
+  '@antv/x6-plugin-scroller':
+    specifier: ^2.0.10
+    version: 2.0.10(@antv/x6@2.18.1)
   '@dnd-kit/core':
     specifier: ^6.1.0
     version: 6.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -222,6 +228,22 @@ packages:
 
   /@antv/x6-geometry@2.0.5:
     resolution: {integrity: sha512-MId6riEQkxphBpVeTcL4ZNXL4lScyvDEPLyIafvWMcWNTGK0jgkK7N20XSzqt8ltJb0mGUso5s56mrk8ysHu2A==}
+    dev: false
+
+  /@antv/x6-plugin-minimap@2.0.7(@antv/x6@2.18.1):
+    resolution: {integrity: sha512-8zzESCx0jguFPCOKCA0gPFb6JmRgq81CXXtgJYe34XhySdZ6PB23I5Po062lNsEuTjTjnzli4lju8vvU+jzlGw==}
+    peerDependencies:
+      '@antv/x6': ^2.x
+    dependencies:
+      '@antv/x6': 2.18.1
+    dev: false
+
+  /@antv/x6-plugin-scroller@2.0.10(@antv/x6@2.18.1):
+    resolution: {integrity: sha512-CrC5zCbtPe7LJEKK8ucLcDN+9lMtTJNApFmFObAiR/y2LO1QFCHz8GGLVeNOZaIEmJbR/Z/etpJkvc1LE7WhTg==}
+    peerDependencies:
+      '@antv/x6': ^2.x
+    dependencies:
+      '@antv/x6': 2.18.1
     dev: false
 
   /@antv/x6@2.18.1:
