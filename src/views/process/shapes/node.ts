@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 16:50:08
+ * @LastEditTime: 2024-09-06 16:54:45
  * @Description: 节点操作
  *
  */
@@ -84,10 +84,14 @@ export default class Node {
   /**
    * 创建中间节点
    */
-  createMiddleNode(data) {}
+  createMiddleNode(data) {
+    console.log(data, 'xxxxxxxxxx');
+  }
 
   /**
    * 创建结束节点
    */
-  createEndNode(data) {}
+  createEndNode(data) {
+    console.log(data, 'xxxxxxxxxx');
+  }
 }
