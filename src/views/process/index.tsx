@@ -17,7 +17,7 @@ const Process = () => {
       // 初始化
       graphMain.createGraph(map.current, minMap.current, data);
     }
-  });
+  }, []);
   return (
     <div className="graph-container">
       {/* 画布容器 */}
