@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import GraphMain from './shapes/index';
 import './index.less';
+import { data } from './constants/data';
 
 const Process = () => {
   const map = useRef(null);
@@ -13,7 +14,8 @@ const Process = () => {
 
     graphMain = new GraphMain();
     if (map.current && minMap.current) {
-      graphMain.createGraph(map.current, minMap.current);
+      // 初始化
+      graphMain.createGraph(map.current, minMap.current, data);
     }
   });
   return (

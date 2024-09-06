@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-04 17:15:28
+ * @LastEditTime: 2024-09-06 11:13:30
  * @Description: 入口文件
  *
  */
@@ -11,6 +11,9 @@ import { Graph } from '@antv/x6';
 import { Scroller } from '@antv/x6-plugin-scroller';
 import { MiniMap } from '@antv/x6-plugin-minimap';
 import { SimpleNodeView } from './simple-view';
+import { type NodeRes } from '../constants/data';
+import { NODE_TYPE } from '../constants/index';
+import Node from './node';
 
 export default class GraphMain {
   graph: Graph | null; // 画布实例
@@ -22,10 +25,11 @@ export default class GraphMain {
   /**
    * 创建画布
    */
-  createGraph(map: HTMLDivElement, minMap: HTMLDivElement) {
-    // 画布初始化
+  createGraph(map: HTMLDivElement, minMap: HTMLDivElement, data) {
+    // 初始化画布
     this.graph = new Graph({
       container: map,
+      autoResize: true,
       background: {
         color: '#fff' // 设置画布背景颜色
       }
@@ -58,12 +62,33 @@ export default class GraphMain {
         }
       })
     );
+
+    // 初始化节点
+    this.initGraphNode(data);
   }
 
   /**
    * 初始化节点
    */
-  initGraphNode() {}
+  initGraphNode(list: NodeRes[]) {
+    const node = new Node(this);
+    list.forEach(item => {
+      switch (item.nodeType) {
+        // 开始节点
+        case NODE_TYPE.START_NODE:
+          node.createStartNode(item);
+          break;
+        // 中间节点
+        case NODE_TYPE.MIDDLE_NODE:
+          node.createMiddleNode(item);
+          break;
+        // 结束节点
+        case NODE_TYPE.END_NODE:
+          node.createEndNode(item);
+          break;
+      }
+    });
+  }
 
   /**
    * 初始化边
