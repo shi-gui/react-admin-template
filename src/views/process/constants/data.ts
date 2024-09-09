@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:55:48
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 16:49:46
+ * @LastEditTime: 2024-09-09 11:21:12
  * @Description: 节点数据
  *
  */
@@ -17,12 +17,22 @@ export interface NodeRes {
 export const data = [
   {
     id: '1',
-    nodeName: '基本信息',
+    nodeName: '基本流程',
     nodeType: 0,
     skipNodeId: '2',
     position: {
       x: 50,
-      y: 50
+      y: 300
+    }
+  },
+  {
+    id: '2',
+    nodeName: '确认用户信息',
+    nodeType: 1,
+    skipNodeId: '3',
+    position: {
+      x: 300,
+      y: 300
     }
   }
 ];

@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 11:13:30
+ * @LastEditTime: 2024-09-09 10:57:01
  * @Description: 入口文件
  *
  */
@@ -17,9 +17,11 @@ import Node from './node';
 
 export default class GraphMain {
   graph: Graph | null; // 画布实例
+  node; // class Node 实例
 
   constructor() {
     this.graph = null;
+    this.node = null;
   }
 
   /**
@@ -71,23 +73,38 @@ export default class GraphMain {
    * 初始化节点
    */
   initGraphNode(list: NodeRes[]) {
-    const node = new Node(this);
+    this.node = new Node(this);
     list.forEach(item => {
       switch (item.nodeType) {
         // 开始节点
         case NODE_TYPE.START_NODE:
-          node.createStartNode(item);
+          this.node.createStartNode(item);
           break;
         // 中间节点
         case NODE_TYPE.MIDDLE_NODE:
-          node.createMiddleNode(item);
+          this.middleNodeType(item);
           break;
         // 结束节点
         case NODE_TYPE.END_NODE:
-          node.createEndNode(item);
+          this.node.createEndNode(item);
           break;
       }
     });
+  }
+
+  /**
+   * 中间节点类型判断
+   *  1、普通节点
+   *  2、群组节点
+   */
+  middleNodeType(data) {
+    if (data.children?.length) {
+      // 群组节点
+      this.node.createMiddleGroupNode(data);
+    } else {
+      // 普通节点
+      this.node.createMiddleNormalNode(data);
+    }
   }
 
   /**

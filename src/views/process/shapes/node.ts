@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 16:54:45
+ * @LastEditTime: 2024-09-09 11:28:44
  * @Description: 节点操作
  *
  */
@@ -82,11 +82,48 @@ export default class Node {
   }
 
   /**
-   * 创建中间节点
+   * 创建中间节点👉普通节点
    */
-  createMiddleNode(data) {
-    console.log(data, 'xxxxxxxxxx');
+  createMiddleNormalNode(data) {
+    const { middleNodeWidth, middleNodeHeight } = NODE_SIZE;
+    const { id, position, nodeType } = data;
+    // 生成画布节点信息
+    const nodeInfo = {
+      id,
+      nodeType,
+      width: middleNodeWidth,
+      height: middleNodeHeight,
+      x: position.x ?? 0,
+      y: position.y ?? 0,
+      attrs: {
+        body: {
+          stroke: '#8f8f8f',
+          strokeWidth: 1,
+          fill: '#f6f8fa',
+          rx: 4,
+          ry: 4,
+          filter: FILTER.dropShadow
+        },
+        label: {
+          fontSize: 16,
+          fill: '#444',
+          // 水平
+          textAnchor: 'middle',
+          // 垂直
+          textVerticalAnchor: 'middle',
+          text: data.nodeName,
+          fontWeight: 600
+        }
+      }
+    };
+
+    // 将节点添加到画布上
+    this.graphInstance.graph.addNode(nodeInfo);
   }
+  /**
+   * 创建中间节点👉群组节点
+   */
+  createMiddleGroupNode() {}
 
   /**
    * 创建结束节点

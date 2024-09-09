@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:30:13
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 16:20:25
+ * @LastEditTime: 2024-09-06 18:32:26
  * @Description: 基础配置信息
  *
  */
@@ -21,7 +21,14 @@ export const NODE_TYPE = {
 export const NODE_SIZE = {
   // 开始节点宽高
   startNodeWidth: 128,
-  startNodeHeight: 64
+  startNodeHeight: 64,
+
+  // 中间节点宽高
+  middleNodeWidth: 214,
+  middleNodeHeight: 64,
+  // 中间节点中子节点宽高
+  middleChildNodeWidth: 180,
+  middleChildNodeHeight: 32
 };
 
 // 节点Icon图片配置
