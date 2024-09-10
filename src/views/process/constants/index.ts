@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:30:13
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-09 18:32:07
+ * @LastEditTime: 2024-09-10 15:17:57
  * @Description: 基础配置信息
  *
  */
@@ -30,7 +30,11 @@ export const NODE_SIZE = {
   middleChildNodeWidth: 180,
   middleChildNodeHeight: 32,
   // 中间节点的子节点上下间隔
-  middleChildNodeDistance: 10
+  middleChildNodeDistance: 10,
+
+  // 结束节点的宽高
+  endNodeWidth: 100,
+  endNodeHeight: 64
 };
 
 // 节点Icon图片配置

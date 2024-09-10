@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-10 10:45:23
+ * @LastEditTime: 2024-09-10 15:28:06
  * @Description: 节点操作
  *
  */
@@ -207,6 +207,38 @@ export default class Node {
    * 创建结束节点
    */
   createEndNode(data) {
-    console.log(data, 'xxxxxxxxxx');
+    const { endNodeWidth, endNodeHeight } = NODE_SIZE;
+    const { id, position, nodeType } = data;
+
+    // 生成画布节点信息
+    const nodeInfo = {
+      id,
+      nodeType,
+      width: endNodeWidth,
+      height: endNodeHeight,
+      x: position.x ?? 0,
+      y: position.y ?? 0,
+      attrs: {
+        body: {
+          stroke: '#8f8f8f',
+          strokeWidth: 1,
+          rx: endNodeWidth / 2,
+          ry: endNodeHeight / 2,
+          fill: '#f6f8fa',
+          filter: FILTER.dropShadow
+        },
+        label: {
+          fontSize: 16,
+          fill: '#444',
+          textAnchor: 'middle',
+          textVerticalAnchor: 'middle',
+          text: data.nodeName,
+          fontWeight: 600
+        }
+      }
+    };
+
+    // 将节点添加到画布上
+    this.graphInstance.graph.addNode(nodeInfo);
   }
 }

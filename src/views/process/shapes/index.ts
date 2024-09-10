@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-09 18:09:03
+ * @LastEditTime: 2024-09-10 15:37:40
  * @Description: 入口文件
  *
  */
@@ -44,7 +44,7 @@ export default class GraphMain {
         pageBreak: false, // 是否显示分页符
         pannable: true, // 是否启用画布平移能力（在空白位置按下鼠标后拖动平移画布）
         padding: 0, // 设置画布四周的 padding 边距。
-        pageWidth: 1500 // 每一页的宽度，默认为画布容器宽度
+        pageWidth: 1200 // 每一页的宽度，默认为画布容器宽度
       })
     );
     // 初始化小地图

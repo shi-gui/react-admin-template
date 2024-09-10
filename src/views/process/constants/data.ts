@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:55:48
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-09 16:38:25
+ * @LastEditTime: 2024-09-10 15:36:36
  * @Description: 节点数据
  *
  */
@@ -48,5 +48,70 @@ export const data = [
       { id: '4', nodeName: '是大会员' },
       { id: '5', nodeName: '不是大会员' }
     ]
+  },
+  {
+    id: '6',
+    nodeName: '是否申请访问',
+    nodeType: 1,
+    skipNodeId: '',
+    position: {
+      x: 966,
+      y: 160
+    },
+    children: [
+      { id: '7', nodeName: '申请访问' },
+      { id: '8', nodeName: '不申请访问' }
+    ]
+  },
+  {
+    id: '9',
+    nodeName: '无权访问',
+    nodeType: 1,
+    skipNodeId: '7',
+    position: {
+      x: 966,
+      y: 500
+    }
+  },
+  {
+    id: '10',
+    nodeName: '是否通过',
+    nodeType: 1,
+    skipNodeId: '',
+    position: {
+      x: 1300,
+      y: 100
+    },
+    children: [
+      { id: '11', nodeName: '通过' },
+      { id: '12', nodeName: '不通过' }
+    ]
+  },
+  {
+    id: '13',
+    nodeName: '结束',
+    nodeType: 2,
+    position: {
+      x: 1300,
+      y: 500
+    }
+  },
+  {
+    id: '14',
+    nodeName: '结束',
+    nodeType: 2,
+    position: {
+      x: 1634,
+      y: 80
+    }
+  },
+  {
+    id: '15',
+    nodeName: '结束',
+    nodeType: 2,
+    position: {
+      x: 1634,
+      y: 180
+    }
   }
 ];
