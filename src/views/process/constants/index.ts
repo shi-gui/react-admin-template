@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:30:13
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-06 18:32:26
+ * @LastEditTime: 2024-09-09 18:32:07
  * @Description: 基础配置信息
  *
  */
@@ -26,16 +26,17 @@ export const NODE_SIZE = {
   // 中间节点宽高
   middleNodeWidth: 214,
   middleNodeHeight: 64,
-  // 中间节点中子节点宽高
+  // 中间节点的子节点宽高
   middleChildNodeWidth: 180,
-  middleChildNodeHeight: 32
+  middleChildNodeHeight: 32,
+  // 中间节点的子节点上下间隔
+  middleChildNodeDistance: 10
 };
 
 // 节点Icon图片配置
 export const NODE_ICON = {
   // 开始节点图标
-  startNodeIcon:
-    'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png'
+  startNodeIcon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png'
 };
 
 // 滤镜 https://x6.antv.antgroup.com/api/registry/filter#highlight

@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-09 11:28:44
+ * @LastEditTime: 2024-09-10 10:45:23
  * @Description: 节点操作
  *
  */
@@ -123,7 +123,85 @@ export default class Node {
   /**
    * 创建中间节点👉群组节点
    */
-  createMiddleGroupNode() {}
+  createMiddleGroupNode(data) {
+    const { middleNodeWidth, middleNodeHeight, middleChildNodeHeight, middleChildNodeDistance } = NODE_SIZE;
+    const { id, position, nodeType } = data;
+    // 高度计算
+    const len = data.children.length;
+    const height = middleNodeHeight + len * (middleChildNodeHeight + middleChildNodeDistance);
+    // 生成画布节点信息
+    const nodeInfo = {
+      id,
+      nodeType,
+      width: middleNodeWidth,
+      height: height,
+      x: position.x ?? 0,
+      y: position.y ?? 0,
+      attrs: {
+        body: {
+          stroke: '#8f8f8f',
+          strokeWidth: 1,
+          fill: '#f6f8fa',
+          rx: 4,
+          ry: 4,
+          filter: FILTER.dropShadow
+        },
+        label: {
+          text: data.nodeName,
+          textAnchor: 'start',
+          refY: 32,
+          refX: 20,
+          fontSize: 16,
+          fill: '#444',
+          fontWeight: 600,
+          lineHeight: 22
+        }
+      }
+    };
+
+    // 将节点添加到画布上
+    const parentNode = this.graphInstance.graph.addNode(nodeInfo);
+    // 创建子节点并将其添加到中间节点中
+    this.createMiddleGroupChildNode(parentNode, data, position);
+  }
+  /**
+   * 创建中间节点👉群组节点👉下面的子节点
+   */
+  createMiddleGroupChildNode(parentNode, data, position) {
+    const { middleNodeWidth, middleNodeHeight, middleChildNodeWidth, middleChildNodeHeight, middleChildNodeDistance } =
+      NODE_SIZE;
+    data.children.forEach((child, index) => {
+      // 子节点坐标计算
+      const x = position.x + (middleNodeWidth - middleChildNodeWidth) / 2;
+      const y = position.y + middleNodeHeight + (middleChildNodeHeight + middleChildNodeDistance - 2) * index;
+      // 生成画布节点信息
+      const nodeInfo = {
+        width: middleChildNodeWidth,
+        height: middleChildNodeHeight,
+        x,
+        y,
+        attrs: {
+          body: {
+            stroke: '#ccc',
+            rx: 0,
+            ry: 0,
+            strokeWidth: 1
+          },
+          label: {
+            textAnchor: 'start',
+            fontSize: 14,
+            refX: 15,
+            fill: '#5f5f5f',
+            lineHeight: 18,
+            text: child.nodeName
+          }
+        }
+      };
+
+      const childNode = this.graphInstance.graph.addNode(nodeInfo);
+      parentNode.addChild(childNode);
+    });
+  }
 
   /**
    * 创建结束节点

@@ -26,6 +26,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'max-len': ['error', { code: 120 }], // 单行代码最大长度
     eqeqeq: 'warn', // 全等
     'no-unused-vars': 'off', // 禁止出现未使用过的变量
     'space-before-function-paren': 'off', // 强制在 function的左括号之前使用一致的空格

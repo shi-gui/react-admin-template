@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:55:48
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-09 11:21:12
+ * @LastEditTime: 2024-09-09 16:38:25
  * @Description: 节点数据
  *
  */
@@ -31,8 +31,22 @@ export const data = [
     nodeType: 1,
     skipNodeId: '3',
     position: {
-      x: 300,
+      x: 298, // 节点之间间隔120，自己算一下
       y: 300
     }
+  },
+  {
+    id: '3',
+    nodeName: '是否是大会员',
+    nodeType: 1,
+    skipNodeId: '4',
+    position: {
+      x: 632,
+      y: 300
+    },
+    children: [
+      { id: '4', nodeName: '是大会员' },
+      { id: '5', nodeName: '不是大会员' }
+    ]
   }
 ];
