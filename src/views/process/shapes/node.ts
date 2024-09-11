@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-10 15:28:06
+ * @LastEditTime: 2024-09-11 15:35:14
  * @Description: 节点操作
  *
  */
@@ -74,6 +74,60 @@ export default class Node {
           text: data.nodeName,
           fontWeight: 600
         }
+      },
+      // 连接桩
+      ports: {
+        groups: {
+          // 分组，分组名为outPort
+          outPort: {
+            position: {
+              name: 'absolute',
+              args: { x: 0, y: 0 }
+            },
+            markup: [
+              {
+                tagName: 'rect',
+                selector: 'rect'
+              },
+              {
+                tagName: 'rect',
+                selector: 'dot'
+              }
+            ],
+            attrs: {
+              rect: {
+                magnet: true,
+                stroke: '#D2CBC7',
+                fill: '#fff',
+                strokeWidth: 1,
+                width: 12,
+                height: 12,
+                ry: 12,
+                rx: 12,
+                x: -6,
+                y: -6
+              },
+              dot: {
+                magnet: true,
+                fill: '#D2CBC7',
+                width: 8,
+                height: 8,
+                ry: 8,
+                rx: 8,
+                x: -4,
+                y: -4
+              }
+            }
+          }
+        },
+        items: [
+          {
+            group: 'outPort',
+            // 链接桩的 DOM 层级，值越大层级越高
+            zIndex: 3,
+            args: { x: '100%', y: '50%' }
+          }
+        ]
       }
     };
 
