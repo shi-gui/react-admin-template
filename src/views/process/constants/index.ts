@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:30:13
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-10 15:17:57
+ * @LastEditTime: 2024-09-11 16:12:16
  * @Description: 基础配置信息
  *
  */
@@ -44,7 +44,7 @@ export const NODE_ICON = {
 };
 
 // 滤镜 https://x6.antv.antgroup.com/api/registry/filter#highlight
-export const FILTER = {
+export const NODE_FILTER = {
   // 💭 阴影滤镜 —— 默认显示
   dropShadow: {
     name: 'dropShadow',
@@ -64,6 +64,71 @@ export const FILTER = {
       width: 4,
       blur: 1,
       opacity: 0.08
+    }
+  }
+};
+
+// 链接桩配置
+export const NODE_PORT = {
+  // 链接桩组定义，可以定义多个
+  groups: {
+    // 分组1，分组名group1
+    group1: {
+      position: {
+        name: 'absolute',
+        args: { x: 0, y: 0 }
+      },
+      markup: [
+        {
+          tagName: 'rect',
+          selector: 'rect'
+        },
+        {
+          tagName: 'rect',
+          selector: 'dot'
+        }
+      ],
+      attrs: {
+        rect: {
+          magnet: true,
+          stroke: '#D2CBC7',
+          fill: '#fff',
+          strokeWidth: 1,
+          width: 12,
+          height: 12,
+          ry: 12,
+          rx: 12,
+          x: -6,
+          y: -6
+        },
+        dot: {
+          magnet: true,
+          fill: '#D2CBC7',
+          width: 8,
+          height: 8,
+          ry: 8,
+          rx: 8,
+          x: -4,
+          y: -4
+        }
+      }
+    }
+  },
+  items: {
+    // 节点左边的桩
+    left: {
+      // groups 中的分组名
+      group: 'group1',
+      // 链接桩的 DOM 层级，值越大层级越高
+      zIndex: 3,
+      args: { x: 0, y: '50%' }
+    },
+    // 节点右边的桩
+    right: {
+      group: 'group1',
+      // 链接桩的 DOM 层级，值越大层级越高
+      zIndex: 3,
+      args: { x: '100%', y: '50%' }
     }
   }
 };

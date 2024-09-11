@@ -2,12 +2,12 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-11 15:35:14
+ * @LastEditTime: 2024-09-11 16:27:03
  * @Description: 节点操作
  *
  */
 
-import { NODE_SIZE, NODE_ICON, FILTER } from '../constants';
+import { NODE_SIZE, NODE_ICON, NODE_FILTER, NODE_PORT } from '../constants';
 export default class Node {
   // 画布实例this
   graphInstance;
@@ -51,7 +51,7 @@ export default class Node {
           rx: startNodeHeight / 2,
           ry: startNodeHeight / 2,
           fill: '#f6f8fa',
-          filter: FILTER.dropShadow
+          filter: NODE_FILTER.dropShadow
         },
         img: {
           'xlink:href': NODE_ICON.startNodeIcon,
@@ -78,56 +78,9 @@ export default class Node {
       // 连接桩
       ports: {
         groups: {
-          // 分组，分组名为outPort
-          outPort: {
-            position: {
-              name: 'absolute',
-              args: { x: 0, y: 0 }
-            },
-            markup: [
-              {
-                tagName: 'rect',
-                selector: 'rect'
-              },
-              {
-                tagName: 'rect',
-                selector: 'dot'
-              }
-            ],
-            attrs: {
-              rect: {
-                magnet: true,
-                stroke: '#D2CBC7',
-                fill: '#fff',
-                strokeWidth: 1,
-                width: 12,
-                height: 12,
-                ry: 12,
-                rx: 12,
-                x: -6,
-                y: -6
-              },
-              dot: {
-                magnet: true,
-                fill: '#D2CBC7',
-                width: 8,
-                height: 8,
-                ry: 8,
-                rx: 8,
-                x: -4,
-                y: -4
-              }
-            }
-          }
+          group1: NODE_PORT.groups.group1
         },
-        items: [
-          {
-            group: 'outPort',
-            // 链接桩的 DOM 层级，值越大层级越高
-            zIndex: 3,
-            args: { x: '100%', y: '50%' }
-          }
-        ]
+        items: [NODE_PORT.items.right]
       }
     };
 
@@ -156,7 +109,7 @@ export default class Node {
           fill: '#f6f8fa',
           rx: 4,
           ry: 4,
-          filter: FILTER.dropShadow
+          filter: NODE_FILTER.dropShadow
         },
         label: {
           fontSize: 16,
@@ -168,6 +121,12 @@ export default class Node {
           text: data.nodeName,
           fontWeight: 600
         }
+      },
+      ports: {
+        groups: {
+          group1: NODE_PORT.groups.group1
+        },
+        items: [NODE_PORT.items.left, NODE_PORT.items.right]
       }
     };
 
@@ -198,7 +157,7 @@ export default class Node {
           fill: '#f6f8fa',
           rx: 4,
           ry: 4,
-          filter: FILTER.dropShadow
+          filter: NODE_FILTER.dropShadow
         },
         label: {
           text: data.nodeName,
@@ -210,6 +169,12 @@ export default class Node {
           fontWeight: 600,
           lineHeight: 22
         }
+      },
+      ports: {
+        groups: {
+          group1: NODE_PORT.groups.group1
+        },
+        items: [NODE_PORT.items.left]
       }
     };
 
@@ -249,6 +214,12 @@ export default class Node {
             lineHeight: 18,
             text: child.nodeName
           }
+        },
+        ports: {
+          groups: {
+            group1: NODE_PORT.groups.group1
+          },
+          items: [NODE_PORT.items.right]
         }
       };
 
@@ -279,7 +250,7 @@ export default class Node {
           rx: endNodeWidth / 2,
           ry: endNodeHeight / 2,
           fill: '#f6f8fa',
-          filter: FILTER.dropShadow
+          filter: NODE_FILTER.dropShadow
         },
         label: {
           fontSize: 16,
@@ -289,6 +260,12 @@ export default class Node {
           text: data.nodeName,
           fontWeight: 600
         }
+      },
+      ports: {
+        groups: {
+          group1: NODE_PORT.groups.group1
+        },
+        items: [NODE_PORT.items.left]
       }
     };
 
