@@ -1,11 +1,5 @@
 import { lazy, ReactNode, Suspense } from 'react';
-import {
-  Route,
-  Routes,
-  useLocation,
-  Navigate,
-  type RouteObject
-} from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate, type RouteObject } from 'react-router-dom';
 import { getToken } from '@/utils/store';
 import { Spin } from 'antd';
 // Layout不需要懒加载
@@ -31,6 +25,8 @@ const DragTable = lazy(() => import('@/views/table/darg-table'));
 const ScreenCity = lazy(() => import('@/views/screen/city'));
 // process
 const Process = lazy(() => import('@/views/process'));
+// file
+const File = lazy(() => import('@/views/file'));
 
 // 避免闪屏
 const lazyLoad = (conponent: ReactNode): ReactNode => {
@@ -103,6 +99,11 @@ const AppRouter = () => {
         {
           path: '/process',
           element: lazyLoad(<Process />)
+        },
+        // file
+        {
+          path: '/file',
+          element: lazyLoad(<File />)
         }
       ]
     },

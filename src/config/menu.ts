@@ -2,7 +2,7 @@
  * @Author: liuhua
  * @Date: 2023-06-17 17:23:30
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-07-22 11:41:57
+ * @LastEditTime: 2024-09-13 15:32:49
  * @Description: 菜单配置（配置由后端返回更加灵活）
  *
  */
@@ -168,6 +168,15 @@ export const menu: MenuItem[] = [
     title: '流程图',
     path: '/process',
     icon: 'StockOutlined',
+    roles: ['admin', 'test'],
+    parentId: null
+  },
+  // 文件预览
+  {
+    id: '9',
+    title: '文件预览',
+    path: '/file',
+    icon: 'FileTextOutlined',
     roles: ['admin', 'test'],
     parentId: null
   }
