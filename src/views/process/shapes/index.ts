@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-14 16:56:12
+ * @LastEditTime: 2024-09-14 17:58:10
  * @Description: 入口文件
  *
  */
@@ -17,8 +17,10 @@ import Node from './node';
 import Edge from './edge';
 
 export default class GraphMain {
-  graph: Graph | null; // 画布实例
-  node; // class Node 实例
+  // 画布实例
+  graph: Graph | null;
+  // class Node 实例
+  node;
 
   constructor() {
     this.graph = null;
@@ -119,9 +121,12 @@ export default class GraphMain {
     data.forEach(item => {
       if (item.children?.length) {
         // 群组节点
-        item.children.forEach(it => {
-          const sourceNode = nodes?.find(node => node.id === item.id);
-          const targetNode = nodes?.find(node => node.id === it.skipNodeId);
+        const parentNode = nodes?.find(node => node.id === item.id);
+        // 获取当前节点下的所有子节点
+        const childNodes = parentNode?.getChildren() || [];
+        item.children.forEach((child, index) => {
+          const targetNode = nodes?.find(node => node.id === child.skipNodeId);
+          const sourceNode = childNodes[index];
 
           targetNode && edge.createEdge(sourceNode, targetNode);
         });

@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:29:39
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-14 17:05:30
+ * @LastEditTime: 2024-09-14 18:00:26
  * @Description: 边操作
  *
  */
@@ -17,17 +17,20 @@ export default class Edge {
 
   // 创建边（连线）
   createEdge(source, target) {
-    // console.log(source, 'xxxxx');
-    // const sourcePorts = source.port.ports.find(port => port.group === 'group1');
-    // const targetPorts = target.port.ports.find(port => port.group === 'group1');
+    const sourcePorts = source.port.ports.find(port => port.group === 'outPort');
+    const targetPorts = target.port.ports.find(port => port.group === 'inPort');
+
     this.graphInstance.graph.addEdge({
       source: {
-        cell: source
+        cell: source,
+        port: sourcePorts?.id
       },
       target: {
-        cell: target
+        cell: target,
+        port: targetPorts?.id
       },
       attrs: {
+        id: `${source.id} ${target.id}`,
         // 修改线条颜色
         line: {
           stroke: '#d9d9d9'

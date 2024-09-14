@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-11 16:27:03
+ * @LastEditTime: 2024-09-14 17:19:40
  * @Description: 节点操作
  *
  */
@@ -77,9 +77,7 @@ export default class Node {
       },
       // 连接桩
       ports: {
-        groups: {
-          group1: NODE_PORT.groups.group1
-        },
+        groups: NODE_PORT.groups,
         items: [NODE_PORT.items.right]
       }
     };
@@ -123,9 +121,7 @@ export default class Node {
         }
       },
       ports: {
-        groups: {
-          group1: NODE_PORT.groups.group1
-        },
+        groups: NODE_PORT.groups,
         items: [NODE_PORT.items.left, NODE_PORT.items.right]
       }
     };
@@ -171,9 +167,7 @@ export default class Node {
         }
       },
       ports: {
-        groups: {
-          group1: NODE_PORT.groups.group1
-        },
+        groups: NODE_PORT.groups,
         items: [NODE_PORT.items.left]
       }
     };
@@ -216,9 +210,7 @@ export default class Node {
           }
         },
         ports: {
-          groups: {
-            group1: NODE_PORT.groups.group1
-          },
+          groups: NODE_PORT.groups,
           items: [NODE_PORT.items.right]
         }
       };
@@ -262,9 +254,7 @@ export default class Node {
         }
       },
       ports: {
-        groups: {
-          group1: NODE_PORT.groups.group1
-        },
+        groups: NODE_PORT.groups,
         items: [NODE_PORT.items.left]
       }
     };
