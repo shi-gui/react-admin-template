@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-10 15:37:40
+ * @LastEditTime: 2024-09-14 16:56:12
  * @Description: 入口文件
  *
  */
@@ -14,6 +14,7 @@ import { SimpleNodeView } from './simple-view';
 import { type NodeRes } from '../constants/data';
 import { NODE_TYPE } from '../constants/index';
 import Node from './node';
+import Edge from './edge';
 
 export default class GraphMain {
   graph: Graph | null; // 画布实例
@@ -67,6 +68,8 @@ export default class GraphMain {
 
     // 初始化节点
     this.initGraphNode(data);
+    // 初始化边
+    this.initGraphEdge(data);
   }
 
   /**
@@ -110,5 +113,25 @@ export default class GraphMain {
   /**
    * 初始化边
    */
-  initGraphEdge() {}
+  initGraphEdge(data) {
+    const edge = new Edge(this);
+    const nodes = this.graph?.getNodes();
+    data.forEach(item => {
+      if (item.children?.length) {
+        // 群组节点
+        item.children.forEach(it => {
+          const sourceNode = nodes?.find(node => node.id === item.id);
+          const targetNode = nodes?.find(node => node.id === it.skipNodeId);
+
+          targetNode && edge.createEdge(sourceNode, targetNode);
+        });
+      } else {
+        // 普通节点
+        const sourceNode = nodes?.find(node => node.id === item.id);
+        const targetNode = nodes?.find(node => node.id === item.skipNodeId);
+
+        targetNode && edge.createEdge(sourceNode, targetNode);
+      }
+    });
+  }
 }
