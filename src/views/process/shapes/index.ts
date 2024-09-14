@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:32:33
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-14 17:58:10
+ * @LastEditTime: 2024-09-14 18:14:31
  * @Description: 入口文件
  *
  */
@@ -15,16 +15,23 @@ import { type NodeRes } from '../constants/data';
 import { NODE_TYPE } from '../constants/index';
 import Node from './node';
 import Edge from './edge';
+import Event from './event';
 
 export default class GraphMain {
-  // 画布实例
+  // graph 画布实例
   graph: Graph | null;
-  // class Node 实例
+  // Node 节点实例
   node;
+  // edge 边实例
+  edge;
+  // event 事件实例
+  event;
 
   constructor() {
     this.graph = null;
-    this.node = null;
+    this.node = new Node(this);
+    this.edge = new Edge(this);
+    this.event = new Event(this);
   }
 
   /**
@@ -72,18 +79,20 @@ export default class GraphMain {
     this.initGraphNode(data);
     // 初始化边
     this.initGraphEdge(data);
+    // 初始化事件
+    this.event.initGraphEvent();
   }
 
   /**
    * 初始化节点
    */
   initGraphNode(list: NodeRes[]) {
-    this.node = new Node(this);
+    const { node } = this;
     list.forEach(item => {
       switch (item.nodeType) {
         // 开始节点
         case NODE_TYPE.START_NODE:
-          this.node.createStartNode(item);
+          node.createStartNode(item);
           break;
         // 中间节点
         case NODE_TYPE.MIDDLE_NODE:
@@ -91,7 +100,7 @@ export default class GraphMain {
           break;
         // 结束节点
         case NODE_TYPE.END_NODE:
-          this.node.createEndNode(item);
+          node.createEndNode(item);
           break;
       }
     });
@@ -103,12 +112,13 @@ export default class GraphMain {
    *  2、群组节点
    */
   middleNodeType(data) {
+    const { node } = this;
     if (data.children?.length) {
       // 群组节点
-      this.node.createMiddleGroupNode(data);
+      node.createMiddleGroupNode(data);
     } else {
       // 普通节点
-      this.node.createMiddleNormalNode(data);
+      node.createMiddleNormalNode(data);
     }
   }
 
@@ -116,8 +126,9 @@ export default class GraphMain {
    * 初始化边
    */
   initGraphEdge(data) {
-    const edge = new Edge(this);
+    const { edge } = this;
     const nodes = this.graph?.getNodes();
+
     data.forEach(item => {
       if (item.children?.length) {
         // 群组节点

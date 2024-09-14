@@ -118,7 +118,7 @@ export const data = [
     nodeType: 2,
     position: {
       x: 1634,
-      y: 180
+      y: 250
     }
   }
 ];
