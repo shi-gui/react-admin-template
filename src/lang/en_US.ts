@@ -1,8 +1,8 @@
 /*
  * @Author: liuhua
  * @Date: 2023-06-25 10:45:33
- * @LastEditors: liuhua
- * @LastEditTime: 2023-07-29 16:30:35
+ * @LastEditors: zhangshigui
+ * @LastEditTime: 2024-09-20 14:30:14
  * @Description: 英语（美式）
  *
  */
@@ -51,5 +51,17 @@ export default {
   双流区: 'Shuangliu district',
   门店访问量: 'Store visits',
   销售额: 'Sales',
-  成华区: 'Chenghua district'
+  成华区: 'Chenghua district',
+  权限页面: 'Permission page',
+  权限说明: 'Permission description',
+  admin页面: 'Admin page',
+  test页面: 'Test page',
+  表格: 'Table',
+  基础表格: 'Basic table',
+  搜索条件: 'Search condition',
+  拖拽表格: 'Drag table',
+  大屏: 'Big screen',
+  智慧城市: 'Smart city',
+  流程图: 'Flow chart',
+  文件预览: 'File preview'
 };
