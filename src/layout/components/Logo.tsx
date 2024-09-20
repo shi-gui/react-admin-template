@@ -9,9 +9,7 @@ const LayoutLogo = (props: Iprops) => {
 
   return theme.sidebarLogo ? (
     <div className="flex items-center justify-center h-16 text-center gap-2">
-      <TwitterOutlined
-        style={{ fontSize: '30px', color: theme.primaryColor }}
-      />
+      <TwitterOutlined style={{ fontSize: '30px', color: theme.primaryColor }} />
 
       <span
         className="text-2xl"

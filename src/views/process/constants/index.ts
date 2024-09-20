@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-08-30 17:30:13
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-20 10:29:59
+ * @LastEditTime: 2024-09-20 15:26:02
  * @Description: 基础配置信息
  *
  */
@@ -60,10 +60,10 @@ export const NODE_FILTER = {
   highlight: {
     name: 'highlight',
     args: {
-      color: '#f54f49',
+      color: '#000',
       width: 4,
       blur: 1,
-      opacity: 0.12
+      opacity: 0.08
     }
   }
 };

@@ -15,7 +15,7 @@
       border-radius: 4px;
       .x6-graph {
         width: 100% !important;
-        height: 100% !important;
+        height: 90px !important;
       }
       .x6-widget-minimap-viewport {
         width: 90px !important;
@@ -28,5 +28,36 @@
   }
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  // 工具栏组件
+  #flow-tool {
+    width: 162px;
+    height: 32px;
+    border: 1px solid @color-black-12;
+    border-radius: 4px;
+    background: #f6f8fa;
+    position: absolute;
+    bottom: 57px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    span {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      color: @color-black-64;
+      &:hover {
+        color: #1D52D6;
+        cursor: pointer;
+      }
+      &:first-child:hover {
+        cursor: move;
+      }
+    }
+    span.disabled {
+      color: @color-black-24;
+      cursor: not-allowed;
+    }
   }
 }

@@ -1,13 +1,4 @@
-import {
-  Layout,
-  Button,
-  Badge,
-  Dropdown,
-  Popover,
-  Tabs,
-  type MenuProps,
-  type TabsProps
-} from 'antd';
+import { Layout, Button, Badge, Dropdown, Popover, Tabs, type MenuProps, type TabsProps } from 'antd';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -51,10 +42,9 @@ const LayoutHeader = (props: Iprops) => {
           label: t('消息') + '（2）',
           children: (
             <div>
-              should be used in parent route elements to render their child
-              route elements. This allows nested UI to show up when child routes
-              are rendered. If the parent route matched exactly, it will render
-              a child index route or nothing if there is no index route.
+              should be used in parent route elements to render their child route elements. This allows nested UI to
+              show up when child routes are rendered. If the parent route matched exactly, it will render a child index
+              route or nothing if there is no index route.
             </div>
           )
         },

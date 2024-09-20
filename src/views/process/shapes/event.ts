@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:15
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-20 10:57:17
+ * @LastEditTime: 2024-09-20 15:25:51
  * @Description: 事件系统
  *
  */
@@ -44,7 +44,7 @@ export default class Event {
 
     // 高亮节点边
     e.node.attr({
-      body: { stroke: '#f54f49' }
+      body: { stroke: '#1D52D6' }
     });
     // 群组节点中的子节点不添加滤镜
     if (nodeType) {

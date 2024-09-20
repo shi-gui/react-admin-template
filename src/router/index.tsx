@@ -26,7 +26,7 @@ const ScreenCity = lazy(() => import('@/views/screen/city'));
 // process
 const Process = lazy(() => import('@/views/process'));
 // file
-const File = lazy(() => import('@/views/file'));
+const File = lazy(() => import('@/views/filePreview'));
 
 // 避免闪屏
 const lazyLoad = (conponent: ReactNode): ReactNode => {
