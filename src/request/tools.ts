@@ -44,10 +44,7 @@ const statusMap: Record<number, string> = {
 export function handleNetworkError(error: AxiosError<ResponseType>) {
   message.destroy();
   const status = error.response?.status;
-  const tips =
-    error.response?.data?.msg ||
-    (status && statusMap[status]) ||
-    `请求失败: ${error}`;
+  const tips = error.response?.data?.msg || (status && statusMap[status]) || `请求失败: ${error}`;
   message.error(tips);
   error.response?.status === 401 && logout();
 }

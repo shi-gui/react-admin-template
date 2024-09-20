@@ -1,8 +1,8 @@
 /*
  * @Author: liuhua
  * @Date: 2023-06-13 09:26:29
- * @LastEditors: liuhua
- * @LastEditTime: 2023-06-13 13:56:09
+ * @LastEditors: zhangshigui
+ * @LastEditTime: 2024-09-20 10:57:39
  * @Description: 来源：https://www.npmjs.com/package/@bwrong/request
  *
  */
@@ -20,15 +20,11 @@ import type {
 
 interface RequestInterceptors<DATA = any, RES = any> {
   // 请求拦截
-  requestInterceptor?: (
-    config: InternalAxiosRequestConfig<DATA>
-  ) => InternalAxiosRequestConfig<DATA>;
+  requestInterceptor?: (config: InternalAxiosRequestConfig<DATA>) => InternalAxiosRequestConfig<DATA>;
   requestInterceptorCatch?: (err: any) => any;
   requestInterceptorOption?: AxiosInterceptorOptions;
   // 响应拦截
-  responseInterceptor?: <T extends RES = RES>(
-    response: AxiosResponse<T, DATA>
-  ) => any;
+  responseInterceptor?: <T extends RES = RES>(response: AxiosResponse<T, DATA>) => any;
   responseInterceptorCatch?: (err: AxiosError<RES>) => any;
   responseInterceptorOption?: AxiosInterceptorOptions;
 }
@@ -48,8 +44,7 @@ export interface RequestConfig<DATA = any> extends AxiosRequestConfig<DATA> {
    * */
   requestUniqueKey?: string;
 }
-interface InstanceRequestConfig<DATA = any, RES = any>
-  extends Omit<RequestConfig<DATA>, 'requestUniqueKey'> {
+interface InstanceRequestConfig<DATA = any, RES = any> extends Omit<RequestConfig<DATA>, 'requestUniqueKey'> {
   /**
    * 拦截器配置：
    * 请求拦截及配置：requestInterceptor、requestInterceptorCatch、requestInterceptorOption
@@ -82,8 +77,7 @@ class Request<R = any, D = any> {
     this.config = config;
     this.instance = axios.create(config);
     this.registerInterceptors();
-    config.generateRequestKey &&
-      (this.generateRequestKey = config.generateRequestKey);
+    config.generateRequestKey && (this.generateRequestKey = config.generateRequestKey);
   }
   /**
    * 创建请求创建唯一标识，重复请求用此作区分, 默认基于url、method、参数生成
@@ -91,12 +85,7 @@ class Request<R = any, D = any> {
    * @param requestConfig
    * @returns
    */
-  private generateRequestKey({
-    method = '',
-    url = '',
-    params = '',
-    data = ''
-  }: RequestConfig) {
+  private generateRequestKey({ method = '', url = '', params = '', data = '' }: RequestConfig) {
     return JSON.stringify({
       method,
       url,
@@ -147,9 +136,7 @@ class Request<R = any, D = any> {
    * 设置全局类拦截器
    * @param interceptors
    */
-  static setInterceptors<DATA = any, RES = any>(
-    interceptors: RequestInterceptors<DATA, RES>
-  ) {
+  static setInterceptors<DATA = any, RES = any>(interceptors: RequestInterceptors<DATA, RES>) {
     Request.interceptors = interceptors;
   }
   /**
@@ -188,8 +175,7 @@ class Request<R = any, D = any> {
    * @returns
    */
   setHeader(headers: Partial<AxiosRequestHeaders>) {
-    this.instance?.defaults?.headers &&
-      Object.assign(this.instance.defaults.headers, headers);
+    this.instance?.defaults?.headers && Object.assign(this.instance.defaults.headers, headers);
   }
   private _generUniqueRequestKey(config: RequestConfig) {
     if (config.requestUniqueKey) {
@@ -202,10 +188,7 @@ class Request<R = any, D = any> {
    * @param config
    * @param controller
    */
-  private _addPendingRequest(
-    config: RequestConfig,
-    controller: AbortController
-  ) {
+  private _addPendingRequest(config: RequestConfig, controller: AbortController) {
     const key = this._generUniqueRequestKey(config);
     this.pendingRequests.has(key)
       ? controller.abort('请求被取消,config:' + config)
@@ -246,15 +229,11 @@ class Request<R = any, D = any> {
       const controller = new AbortController();
       config.signal = controller.signal;
       this._addPendingRequest(config, controller);
-      const cancelPendingTime =
-        this.config.cancelPendingTime || config.cancelPendingTime;
-      cancelPendingTime &&
-        setTimeout(() => this._removePendingRequest(config), cancelPendingTime);
-      return this.instance
-        .request<RES, RES extends R ? R : RES, DATA>(config)
-        .finally(() => {
-          this._removePendingRequest(config);
-        });
+      const cancelPendingTime = this.config.cancelPendingTime || config.cancelPendingTime;
+      cancelPendingTime && setTimeout(() => this._removePendingRequest(config), cancelPendingTime);
+      return this.instance.request<RES, RES extends R ? R : RES, DATA>(config).finally(() => {
+        this._removePendingRequest(config);
+      });
     }
     return this.instance.request<RES, RES extends R ? R : RES, DATA>(config);
   }
@@ -265,11 +244,7 @@ class Request<R = any, D = any> {
    * @param config
    * @returns
    */
-  get<RES = R, DATA = D>(
-    url: string,
-    params: any = {},
-    config: RequestConfig<DATA> = {}
-  ) {
+  get<RES = R, DATA = D>(url: string, params: any = {}, config: RequestConfig<DATA> = {}) {
     return this.request<RES, DATA>({
       method: 'get',
       url,
@@ -284,11 +259,7 @@ class Request<R = any, D = any> {
    * @param config
    * @returns
    */
-  post<RES = R, DATA = D>(
-    url: string,
-    data: any = {},
-    config: RequestConfig<DATA> = {}
-  ) {
+  post<RES = R, DATA = D>(url: string, data: any = {}, config: RequestConfig<DATA> = {}) {
     return this.request<RES, DATA>({
       method: 'post',
       url,
@@ -303,11 +274,7 @@ class Request<R = any, D = any> {
    * @param config
    * @returns
    */
-  put<RES = R, DATA = D>(
-    url: string,
-    data: any = {},
-    config: RequestConfig<DATA> = {}
-  ) {
+  put<RES = R, DATA = D>(url: string, data: any = {}, config: RequestConfig<DATA> = {}) {
     return this.request<RES, DATA>({
       method: 'put',
       url,
@@ -322,11 +289,7 @@ class Request<R = any, D = any> {
    * @param config
    * @returns
    */
-  patch<RES = R, DATA = D>(
-    url: string,
-    data: any = {},
-    config: RequestConfig<DATA> = {}
-  ) {
+  patch<RES = R, DATA = D>(url: string, data: any = {}, config: RequestConfig<DATA> = {}) {
     return this.request<RES, DATA>({
       method: 'patch',
       url,
@@ -341,11 +304,7 @@ class Request<R = any, D = any> {
    * @param config
    * @returns
    */
-  delete<RES = R, DATA = D>(
-    url: string,
-    data: any = {},
-    config: RequestConfig<DATA> = {}
-  ) {
+  delete<RES = R, DATA = D>(url: string, data: any = {}, config: RequestConfig<DATA> = {}) {
     return this.request<RES, DATA>({
       method: 'delete',
       url,

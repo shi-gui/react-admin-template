@@ -27,15 +27,7 @@ export const IndustryRankOption: ECOption = {
   xAxis: [
     {
       type: 'category',
-      data: [
-        '商超门店',
-        '教育培训',
-        '房地产',
-        '生活服务',
-        '汽车销售',
-        '旅游酒店',
-        '五金建材'
-      ],
+      data: ['商超门店', '教育培训', '房地产', '生活服务', '汽车销售', '旅游酒店', '五金建材'],
       axisLine: {
         show: true,
         lineStyle: {
@@ -195,17 +187,7 @@ export const AgeDistributionOption: ECOption = {
       name: '年龄分布',
       center: ['50%', '42%'],
       radius: ['40%', '60%'],
-      color: [
-        '#065aab',
-        '#066eab',
-        '#0682ab',
-        '#0696ab',
-        '#06a0ab',
-        '#06b4ab',
-        '#06c8ab',
-        '#06dcab',
-        '#06f0ab'
-      ],
+      color: ['#065aab', '#066eab', '#0682ab', '#0696ab', '#06a0ab', '#06b4ab', '#06c8ab', '#06dcab', '#06f0ab'],
       label: { show: false },
       labelLine: { show: false },
       data: [
@@ -346,9 +328,7 @@ export const EquipmentUseTimeOption: ECOption = {
         borderColor: 'rgba(221, 220, 107, .1)',
         borderWidth: 12
       },
-      data: [
-        3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4, 3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4
-      ]
+      data: [3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4, 3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4]
     },
     {
       name: 'IOS',
@@ -386,9 +366,7 @@ export const EquipmentUseTimeOption: ECOption = {
         borderColor: 'rgba(221, 220, 107, .1)',
         borderWidth: 12
       },
-      data: [
-        5, 3, 5, 6, 1, 5, 3, 5, 6, 4, 6, 4, 8, 3, 5, 6, 1, 5, 3, 7, 2, 5, 1, 4
-      ]
+      data: [5, 3, 5, 6, 1, 5, 3, 5, 6, 4, 6, 4, 8, 3, 5, 6, 1, 5, 3, 7, 2, 5, 1, 4]
     }
   ]
 };

@@ -2,11 +2,12 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:15
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-14 18:25:55
+ * @LastEditTime: 2024-09-20 10:57:17
  * @Description: 事件系统
  *
  */
 
+import { NODE_FILTER } from '../constants';
 export default class Event {
   // 画布实例this
   graphInstance;
@@ -27,11 +28,46 @@ export default class Event {
     });
     // 监听node 鼠标进入
     this.graphInstance.graph.on('node:mouseenter', e => {
-      console.log('node节点鼠标进入事件', e);
+      this.highlightCurrentNode(e);
     });
     // 监听node 鼠标离开
     this.graphInstance.graph.on('node:mouseleave', e => {
-      console.log('node节点鼠标离开事件', e);
+      this.resetCurrentNode(e);
     });
+  }
+
+  /**
+   * 高亮当前节点
+   */
+  highlightCurrentNode(e) {
+    const { nodeType } = e.node.attrs;
+
+    // 高亮节点边
+    e.node.attr({
+      body: { stroke: '#f54f49' }
+    });
+    // 群组节点中的子节点不添加滤镜
+    if (nodeType) {
+      e.node.attr({
+        body: { filter: NODE_FILTER.highlight }
+      });
+    }
+  }
+
+  /**
+   * 重置当前节点状态
+   */
+  resetCurrentNode(e) {
+    const { nodeType } = e.node.attrs;
+
+    // 重置节点边
+    e.node.attr({
+      body: { stroke: '#8f8f8f' }
+    });
+    if (nodeType) {
+      e.node.attr({
+        body: { filter: NODE_FILTER.dropShadow }
+      });
+    }
   }
 }

@@ -13,9 +13,7 @@ function TableChart() {
         {new Array(len).fill(null).map((_, i) => (
           <li key={i} className="flex items-center justify-between my-5">
             <div className="flex items-center">
-              <div className="w-5 h-5 leading-5 text-center sp rounded-full bg-slate-200 mr-2">
-                {i}
-              </div>
+              <div className="w-5 h-5 leading-5 text-center sp rounded-full bg-slate-200 mr-2">{i}</div>
               <div>
                 {t(address)} {i + 1}
                 {t('号店')}
@@ -60,9 +58,7 @@ function TableChart() {
       },
       series: [
         {
-          data: [
-            120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130
-          ],
+          data: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130],
           type: 'bar',
           barWidth: 35,
           showBackground: false
@@ -113,10 +109,7 @@ function TableChart() {
       },
       series: [
         {
-          data: [
-            820, 932, 901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290,
-            1330, 1320
-          ],
+          data: [820, 932, 901, 934, 1290, 1330, 1320, 820, 932, 901, 934, 1290, 1330, 1320],
           type: 'line',
           smooth: true
         }

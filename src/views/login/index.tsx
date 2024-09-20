@@ -3,15 +3,7 @@ import { Button, Checkbox, Form, Input, ConfigProvider } from 'antd';
 import { TwitterOutlined } from '@ant-design/icons';
 import ParticlesBg from 'particles-bg';
 import type { LoginParams } from '@/api/login/login';
-import {
-  setToken,
-  setUserInfo,
-  getLang,
-  setLang,
-  getUserName,
-  setUserName,
-  removeUserName
-} from '@/utils/store';
+import { setToken, setUserInfo, getLang, setLang, getUserName, setUserName, removeUserName } from '@/utils/store';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
 import appConfig from '@/config';
@@ -58,9 +50,7 @@ function Login() {
       <ParticlesBg type="circle" bg={true} />
       <div className="w-[400px] h-[500px] rounded-lg form-box p-5">
         <div className="flex justify-center items-center flex-col mb-10">
-          <TwitterOutlined
-            style={{ fontSize: '35px', color: theme.primaryColor }}
-          />
+          <TwitterOutlined style={{ fontSize: '35px', color: theme.primaryColor }} />
           <p className="pt-2 text-2xl">Liuhua</p>
         </div>
         <Form
@@ -74,16 +64,10 @@ function Login() {
           autoComplete="off"
         >
           <Form.Item name="username" rules={rules.username}>
-            <Input
-              placeholder={t('用户名') + '：admin/test'}
-              style={{ borderColor: theme.primaryColor }}
-            />
+            <Input placeholder={t('用户名') + '：admin/test'} style={{ borderColor: theme.primaryColor }} />
           </Form.Item>
           <Form.Item name="password" rules={rules.password}>
-            <Input
-              placeholder={t('密码') + '：*'}
-              style={{ borderColor: theme.primaryColor }}
-            />
+            <Input placeholder={t('密码') + '：*'} style={{ borderColor: theme.primaryColor }} />
           </Form.Item>
 
           <ConfigProvider
@@ -99,19 +83,11 @@ function Login() {
             </Form.Item>
           </ConfigProvider>
 
-          <Button
-            type="primary"
-            className="w-full h-10"
-            loading={loading}
-            htmlType="submit"
-          >
+          <Button type="primary" className="w-full h-10" loading={loading} htmlType="submit">
             {t('登录')}
           </Button>
         </Form>
-        <p
-          className="flex text-xs justify-between mt-4 gap-6"
-          style={{ color: theme.primaryColor }}
-        >
+        <p className="flex text-xs justify-between mt-4 gap-6" style={{ color: theme.primaryColor }}>
           <span className=" cursor-pointer">{t('忘记密码')}</span>
           <span className=" cursor-pointer">{t('没有账号?注册')}</span>
         </p>

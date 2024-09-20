@@ -1,9 +1,5 @@
 import Chart from '@/components/chart';
-import {
-  EquipmentUseTimeOption,
-  EquipmentUseAreaOption,
-  CityPeopleOption
-} from '../chartConfig';
+import { EquipmentUseTimeOption, EquipmentUseAreaOption, CityPeopleOption } from '../chartConfig';
 
 const RightPanel = () => {
   return (

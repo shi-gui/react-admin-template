@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:30:45
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-14 17:19:40
+ * @LastEditTime: 2024-09-20 10:18:24
  * @Description: 节点操作
  *
  */
@@ -24,7 +24,6 @@ export default class Node {
     // 生成画布节点信息
     const nodeInfo = {
       id,
-      nodeType,
       width: startNodeWidth,
       height: startNodeHeight,
       x: position.x ?? 0,
@@ -73,7 +72,8 @@ export default class Node {
           textVerticalAnchor: 'middle',
           text: data.nodeName,
           fontWeight: 600
-        }
+        },
+        nodeType
       },
       // 连接桩
       ports: {
@@ -95,7 +95,6 @@ export default class Node {
     // 生成画布节点信息
     const nodeInfo = {
       id,
-      nodeType,
       width: middleNodeWidth,
       height: middleNodeHeight,
       x: position.x ?? 0,
@@ -118,7 +117,8 @@ export default class Node {
           textVerticalAnchor: 'middle',
           text: data.nodeName,
           fontWeight: 600
-        }
+        },
+        nodeType
       },
       ports: {
         groups: NODE_PORT.groups,
@@ -141,7 +141,6 @@ export default class Node {
     // 生成画布节点信息
     const nodeInfo = {
       id,
-      nodeType,
       width: middleNodeWidth,
       height: height,
       x: position.x ?? 0,
@@ -164,7 +163,8 @@ export default class Node {
           fill: '#444',
           fontWeight: 600,
           lineHeight: 22
-        }
+        },
+        nodeType
       },
       ports: {
         groups: NODE_PORT.groups,
@@ -230,7 +230,6 @@ export default class Node {
     // 生成画布节点信息
     const nodeInfo = {
       id,
-      nodeType,
       width: endNodeWidth,
       height: endNodeHeight,
       x: position.x ?? 0,
@@ -251,7 +250,8 @@ export default class Node {
           textVerticalAnchor: 'middle',
           text: data.nodeName,
           fontWeight: 600
-        }
+        },
+        nodeType
       },
       ports: {
         groups: NODE_PORT.groups,

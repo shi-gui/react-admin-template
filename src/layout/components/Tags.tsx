@@ -102,17 +102,10 @@ const LayoutTags = () => {
               <Tag
                 key={item.id}
                 closable={item.isClosed}
-                color={
-                  item.path === location.pathname
-                    ? theme.primaryColor
-                    : 'default'
-                }
+                color={item.path === location.pathname ? theme.primaryColor : 'default'}
                 onClose={() => handleClose(item)}
               >
-                <span
-                  className="cursor-pointer"
-                  onClick={() => handleClick(item)}
-                >
+                <span className="cursor-pointer" onClick={() => handleClick(item)}>
                   {t(item.title)}
                 </span>
               </Tag>

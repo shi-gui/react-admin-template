@@ -16,10 +16,7 @@ const LayoutMain = () => {
     <Layout className="h-full">
       <LayoutSider collapsed={collapsed} />
       <Layout className={collapsed ? 'ml-[84px]' : 'ml-[200px]'}>
-        <LayoutHeader
-          collapsed={collapsed}
-          setCollapsed={(val: boolean) => setCollapsed(val)}
-        />
+        <LayoutHeader collapsed={collapsed} setCollapsed={(val: boolean) => setCollapsed(val)} />
         <LayoutTags />
         <Content
           style={{

@@ -1,9 +1,5 @@
 import Chart from '@/components/chart';
-import {
-  IndustryRankOption,
-  RegionalSalesOption,
-  AgeDistributionOption
-} from '../chartConfig';
+import { IndustryRankOption, RegionalSalesOption, AgeDistributionOption } from '../chartConfig';
 
 const LeftPanel = () => {
   return (

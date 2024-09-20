@@ -1,10 +1,6 @@
 import { Col, Row, Tooltip, Divider, Statistic, Progress } from 'antd';
 import CountUp from 'react-countup';
-import {
-  InfoCircleOutlined,
-  ArrowUpOutlined,
-  ArrowDownOutlined
-} from '@ant-design/icons';
+import { InfoCircleOutlined, ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import Chart, { type ECOption } from '@/components/chart';
 import echarts from '@/libs/echarts';
@@ -13,9 +9,7 @@ function TopCard() {
   const { t } = useTranslation();
 
   const boxClass = 'bg-white h-[185px] p-4 flex flex-col justify-between';
-  const formatter = (value: number, decimals = 0) => (
-    <CountUp end={value} decimals={decimals} separator="," />
-  );
+  const formatter = (value: number, decimals = 0) => <CountUp end={value} decimals={decimals} separator="," />;
 
   const CardOne = () => {
     return (
@@ -28,11 +22,7 @@ function TopCard() {
             </Tooltip>
           </div>
           <div className="text-32 pt-4">
-            <Statistic
-              value={112893}
-              prefix="￥"
-              formatter={(value: any) => formatter(value, 2)}
-            />
+            <Statistic value={112893} prefix="￥" formatter={(value: any) => formatter(value, 2)} />
           </div>
           <div className="h-[46px] flex items-end pb-2">
             <span>
@@ -47,12 +37,7 @@ function TopCard() {
         </div>
         <div>
           <Divider className="my-2" />
-          <Statistic
-            value={1260}
-            precision={2}
-            prefix={t('日销售额') + ' ￥'}
-            valueStyle={{ fontSize: '14px' }}
-          />
+          <Statistic value={1260} precision={2} prefix={t('日销售额') + ' ￥'} valueStyle={{ fontSize: '14px' }} />
         </div>
       </div>
     );
@@ -126,21 +111,14 @@ function TopCard() {
             </Tooltip>
           </div>
           <div className="text-32 pt-4">
-            <Statistic
-              value={8650}
-              formatter={(value: any) => formatter(value)}
-            />
+            <Statistic value={8650} formatter={(value: any) => formatter(value)} />
           </div>
 
           <Chart width="100%" height={46} options={options} />
         </div>
         <div>
           <Divider className="my-2" />
-          <Statistic
-            value={1234}
-            prefix={t('日访问量')}
-            valueStyle={{ fontSize: '14px' }}
-          />
+          <Statistic value={1234} prefix={t('日访问量')} valueStyle={{ fontSize: '14px' }} />
         </div>
       </div>
     );
@@ -189,22 +167,14 @@ function TopCard() {
             </Tooltip>
           </div>
           <div className="text-32 pt-4">
-            <Statistic
-              value={6560}
-              formatter={(value: any) => formatter(value)}
-            />
+            <Statistic value={6560} formatter={(value: any) => formatter(value)} />
           </div>
 
           <Chart width="100%" height={46} options={options} />
         </div>
         <div>
           <Divider className="my-2" />
-          <Statistic
-            value={30}
-            prefix={t('转化率')}
-            suffix="%"
-            valueStyle={{ fontSize: '14px' }}
-          />
+          <Statistic value={30} prefix={t('转化率')} suffix="%" valueStyle={{ fontSize: '14px' }} />
         </div>
       </div>
     );
@@ -220,11 +190,7 @@ function TopCard() {
             </Tooltip>
           </div>
           <div className="text-32 pt-4">
-            <Statistic
-              value={78}
-              suffix="%"
-              formatter={(value: any) => formatter(value)}
-            />
+            <Statistic value={78} suffix="%" formatter={(value: any) => formatter(value)} />
             <Progress percent={78} showInfo={false} />
           </div>
         </div>

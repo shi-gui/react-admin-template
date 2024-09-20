@@ -51,10 +51,7 @@ const LayoutMenu = () => {
    * @param parentId
    * @returns 将平级的数组转换成菜单树
    */
-  const convertTreeMenu = (
-    menuList: MenuItem[],
-    parentId: string | null = null
-  ) => {
+  const convertTreeMenu = (menuList: MenuItem[], parentId: string | null = null) => {
     const tree: MenuProps['items'] = [];
     menuList.forEach(item => {
       if (item.parentId === parentId && !item.isHide) {

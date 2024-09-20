@@ -27,37 +27,22 @@ const LayoutTheme = () => {
         icon={<SettingOutlined />}
         onClick={() => setOpen(true)}
       />
-      <Drawer
-        title={t('系统设置')}
-        placement="right"
-        onClose={() => setOpen(false)}
-        width={350}
-        open={open}
-      >
+      <Drawer title={t('系统设置')} placement="right" onClose={() => setOpen(false)} width={350} open={open}>
         <div className=" flex flex-col !gap-y-7">
           <div className="flex justify-between items-center">
             <span>{t('风格')}</span>
-            <Radio.Group
-              onChange={e => setTheme('mode', e.target.value)}
-              value={theme.mode}
-            >
+            <Radio.Group onChange={e => setTheme('mode', e.target.value)} value={theme.mode}>
               <Radio value="dark">dark</Radio>
               <Radio value="light">light</Radio>
             </Radio.Group>
           </div>
           <div className="flex justify-between items-center">
             <span>{t('侧边栏Logo')}</span>
-            <Switch
-              defaultChecked={theme.sidebarLogo}
-              onChange={(val: boolean) => setTheme('sidebarLogo', val)}
-            />
+            <Switch defaultChecked={theme.sidebarLogo} onChange={(val: boolean) => setTheme('sidebarLogo', val)} />
           </div>
           <div className="flex justify-between items-center">
             <span>{t('开启Tag')}</span>
-            <Switch
-              defaultChecked={theme.showTag}
-              onChange={(val: boolean) => setTheme('showTag', val)}
-            />
+            <Switch defaultChecked={theme.showTag} onChange={(val: boolean) => setTheme('showTag', val)} />
           </div>
           <div className="flex justify-between items-center">
             <span>{t('主题色')}</span>

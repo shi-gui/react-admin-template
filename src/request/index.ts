@@ -3,11 +3,7 @@ import { getToken } from '@/utils/store';
 import Request, { type RequestConfig } from './Server';
 import { ResponseType } from '@/api/types';
 import appConfig from '@/config';
-import {
-  handleBusinessError,
-  handleNetworkError,
-  handleShowTips
-} from './tools';
+import { handleBusinessError, handleNetworkError, handleShowTips } from './tools';
 
 const { tokenKey } = appConfig;
 const request = new Request<ResponseType>({
@@ -61,12 +57,7 @@ export const del = request.delete.bind(request);
  * @param config
  * @returns
  */
-export const download = (
-  fileName: string,
-  url: string,
-  data?: any,
-  config?: RequestConfig
-) => {
+export const download = (fileName: string, url: string, data?: any, config?: RequestConfig) => {
   return request
     .get<BlobPart>(url, data, {
       skipIntercept: true,

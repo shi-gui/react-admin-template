@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
-import {
-  DndContext,
-  PointerSensor,
-  useSensor,
-  useSensors
-} from '@dnd-kit/core';
+import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy
-} from '@dnd-kit/sortable';
+import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Table } from 'antd';
 import { columns, data } from './data';
@@ -22,14 +12,7 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 }
 
 const Row = (props: RowProps) => {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging
-  } = useSortable({
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props['data-row-key']
   });
 
@@ -41,15 +24,7 @@ const Row = (props: RowProps) => {
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {})
   };
 
-  return (
-    <tr
-      {...props}
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-    />
-  );
+  return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
 };
 function DragTable() {
   const [dataSource, setDataSource] = useState(data);
@@ -75,11 +50,7 @@ function DragTable() {
 
   return (
     <div className="bg-white w-full h-full p-4">
-      <DndContext
-        sensors={sensors}
-        modifiers={[restrictToVerticalAxis]}
-        onDragEnd={onDragEnd}
-      >
+      <DndContext sensors={sensors} modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
         <SortableContext
           // rowKey array
           items={dataSource.map(i => i.key)}
