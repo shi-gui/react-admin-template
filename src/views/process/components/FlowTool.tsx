@@ -2,7 +2,7 @@
  * @Author: zhangshigui
  * @Date: 2024-09-04 00:34:01
  * @LastEditors: zhangshigui
- * @LastEditTime: 2024-09-20 16:34:24
+ * @LastEditTime: 2024-09-20 16:47:37
  * @Description: 工具栏组件
  *
  */
@@ -13,10 +13,11 @@ import { useTranslation } from 'react-i18next';
 
 export interface Iprops {
   zoom: (val: number) => void;
+  tidy: () => void;
 }
 const FlowTool = (props: Iprops) => {
   const { t } = useTranslation();
-  const { zoom } = props;
+  const { zoom, tidy } = props;
 
   const [percent, Setpercent] = useState<number>(100);
   // 最小|最大缩放比例
@@ -51,7 +52,7 @@ const FlowTool = (props: Iprops) => {
         <PlusOutlined className={percent >= maxPercent ? 'disabled' : ''} onClick={() => handleZoom(20)} />
       </Tooltip>
       <Tooltip title={t('整理画布')}>
-        <BranchesOutlined />
+        <BranchesOutlined onClick={() => tidy()} />
       </Tooltip>
     </div>
   );

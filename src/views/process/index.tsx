@@ -23,6 +23,12 @@ const Process = () => {
   function handleZoom(value: number) {
     graphMain?.graph.zoomTo(value);
   }
+  // 整理画布
+  function handleTidy() {
+    //销毁并从父节点中移除节点/边
+    graphMain?.graph.dispose();
+    graphMain?.createGraph(map.current, minMap.current, data);
+  }
   return (
     <div className="graph-container">
       {/* 画布容器 */}
@@ -32,7 +38,7 @@ const Process = () => {
       <div id="min-map" ref={minMap} />
 
       {/* 工具栏组件 */}
-      <FlowTool zoom={handleZoom} />
+      <FlowTool zoom={handleZoom} tidy={handleTidy} />
     </div>
   );
 };
